@@ -1,0 +1,1 @@
+- "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"

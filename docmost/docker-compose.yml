@@ -1,0 +1,12 @@
+version: "3.3"
+
+services:
+  docmost:
+    image: docmost/docmost:latest
+    container_name: docmost
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.docmost.rule=Host(`docmost.bryanwills.dev`)"
+      - "traefik.http.routers.docmost.entrypoints=websecure"
+      - "traefik.http.routers.docmost.tls.certresolver=letsencrypt"
+    restart: unless-stopped
