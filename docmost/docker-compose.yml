@@ -6,7 +6,12 @@ services:
     container_name: docmost
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.docmost.rule=Host(`docmost.bryanwills.dev`)"
+      - "traefik.http.routers.docmost.rule=Host(`docs.bryanwills.dev`)"
       - "traefik.http.routers.docmost.entrypoints=websecure"
       - "traefik.http.routers.docmost.tls.certresolver=letsencrypt"
+      - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
+      #     - "traefik.http.routers.docmost.middlewares=docmost-https-redirect"
+      - "traefik.http.routers.docmost-secure.entrypoints=https"
+      - "traefik.http.routers.docmost-secure.rule=Host(`docs.bryanwills.dev`)"
     restart: unless-stopped
