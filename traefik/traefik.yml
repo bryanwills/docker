@@ -12,8 +12,11 @@ certificatesResolvers:
   letsencrypt:
     acme:
       email: bryanwi09@gmail.com
-      storage: acme.json
+      storage: /letsencrypt/acme.json
       tlsChallenge: true
 
 api:
   dashboard: true
+
+log:
+  level: DEBUG

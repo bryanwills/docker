@@ -4,8 +4,8 @@ services:
   traefik:
     image: traefik:v3.3
     container_name: traefik
-    security_opt:
-      - no-new-privileges:true # helps to increase security
+    #security_opt:
+    #  - no-new-privileges:true # helps to increase security
     env_file:
       - .env
     command:
@@ -19,21 +19,21 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock.ro"
       - "./traefik.yml:/etc/traefik/traefik.yml:ro"
-      - "./acme.json:/acme.json"
+      - "./letsencrypt:/letsencrypt"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.traefik.rule=Host(`traefik.bryanwills.dev`)"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.bryanwills.dev`) && (PathPrefix(`api`) || PathPrefix(`/dashboard`))"
       - "traefik.http.middlewares.traefik-auth.basicauth.users=${TRAEFIK_DASHBOARD_CREDENTIALS}"
       - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
       - "traefik.http.routers.traefik.middlewares=traefik-https-redirect"
       - "traefik.http.routers.traefik-secure.entrypoints=https"
-      - "traefik.http.routers.traefik-secure.rule=Host(`traefik-docker.jimsgarage.co.uk`)"
+      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.bryanwills.dev`)"
       - "traefik.http.routers.traefik-secure.middlewares=traefik-auth"
       - "traefik.http.routers.traefik-secure.tls=true"
       - "traefik.http.routers.traefik.entrypoints=websecure"
       - "traefik.http.routers.traefik.tls.certresolver=letsencrypt"
       - "traefik.http.routers.traefik.service=api@internal"
       - "traefik.http.routers.traefik.middlewares=auth"
-      - "traefik.http.middlewares.auth.basicauth,users=${BASIC_AUTH_USER_PASSWORD}"
+    #      - "traefik.http.middlewares.auth.basicauth,users=${BASIC_AUTH_USER_PASSWORD}"
     restart: unless-stopped
