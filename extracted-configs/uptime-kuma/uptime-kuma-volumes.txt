@@ -1,0 +1,2 @@
+/home/bryanwi09/docker/uptime-kuma/data:/app/data
+

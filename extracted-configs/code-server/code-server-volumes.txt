@@ -1,0 +1,4 @@
+/home/bryanwi09/projects:/config/workspace/projects
+/var/www:/config/workspace/websites
+/home/bryanwi09/docker/code-server/config:/config
+

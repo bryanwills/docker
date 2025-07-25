@@ -1,0 +1,340 @@
+[
+    {
+        "Id": "dfd89dfc172df011c90adde26cfc265f3536eb710059141c92a489ec3ea2344a",
+        "Created": "2025-07-08T21:27:02.421345197Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "sh",
+            "-c",
+            "yarn prisma:deploy && yarn concurrently:start"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 59236,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2025-07-08T21:27:02.65963465Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+                "Status": "healthy",
+                "FailingStreak": 0,
+                "Log": [
+                    {
+                        "Start": "2025-07-22T13:04:09.126248875-04:00",
+                        "End": "2025-07-22T13:04:09.22543541-04:00",
+                        "ExitCode": 0,
+                        "Output": "<!DOCTYPE html><html lang=\"en\" data-theme=\"dark\"><head><meta charSet=\"utf-8\"/><title>Linkwarden</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><meta name=\"theme-color\" content=\"#ffffff\"/><link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\"/><link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/favicon-32x32.png\"/><link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/favicon-16x16.png\"/><link rel=\"manifest\" href=\"/site.webmanifest\"/><meta name=\"next-head-count\" content=\"8\"/><link data-next-font=\"size-adjust\" rel=\"preconnect\" href=\"/\" crossorigin=\"anonymous\"/><link rel=\"preload\" href=\"/_next/static/css/6c3fa3985eb7b4e6.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/6c3fa3985eb7b4e6.css\" data-n-g=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/_next/static/chunks/webpack-4cf3a1b70f9bcafa.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-58ed7761b27a84ff.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-ab58a096c3a60c3d.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-f143a6a85f45fc77.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-4f20da6e829ec96e.js\" defer=\"\"></script><script src=\"/_next/static/sbzJEhQpDDf-V5FipSbJD/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/sbzJEhQpDDf-V5FipSbJD/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"sbzJEhQpDDf-V5FipSbJD\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"locale\":\"en\",\"locales\":[\"en\",\"it\",\"fr\",\"zh\",\"zh-TW\",\"uk\",\"pt-BR\",\"ja\",\"es\",\"de\",\"nl\",\"tr\",\"pl\",\"ru\"],\"defaultLocale\":\"en\",\"scriptLoader\":[]}</script></body></html>"
+                    },
+                    {
+                        "Start": "2025-07-22T13:04:39.227360839-04:00",
+                        "End": "2025-07-22T13:04:39.326448124-04:00",
+                        "ExitCode": 0,
+                        "Output": "<!DOCTYPE html><html lang=\"en\" data-theme=\"dark\"><head><meta charSet=\"utf-8\"/><title>Linkwarden</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><meta name=\"theme-color\" content=\"#ffffff\"/><link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\"/><link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/favicon-32x32.png\"/><link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/favicon-16x16.png\"/><link rel=\"manifest\" href=\"/site.webmanifest\"/><meta name=\"next-head-count\" content=\"8\"/><link data-next-font=\"size-adjust\" rel=\"preconnect\" href=\"/\" crossorigin=\"anonymous\"/><link rel=\"preload\" href=\"/_next/static/css/6c3fa3985eb7b4e6.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/6c3fa3985eb7b4e6.css\" data-n-g=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/_next/static/chunks/webpack-4cf3a1b70f9bcafa.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-58ed7761b27a84ff.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-ab58a096c3a60c3d.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-f143a6a85f45fc77.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-4f20da6e829ec96e.js\" defer=\"\"></script><script src=\"/_next/static/sbzJEhQpDDf-V5FipSbJD/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/sbzJEhQpDDf-V5FipSbJD/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"sbzJEhQpDDf-V5FipSbJD\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"locale\":\"en\",\"locales\":[\"en\",\"it\",\"fr\",\"zh\",\"zh-TW\",\"uk\",\"pt-BR\",\"ja\",\"es\",\"de\",\"nl\",\"tr\",\"pl\",\"ru\"],\"defaultLocale\":\"en\",\"scriptLoader\":[]}</script></body></html>"
+                    },
+                    {
+                        "Start": "2025-07-22T13:05:09.327495394-04:00",
+                        "End": "2025-07-22T13:05:09.429305684-04:00",
+                        "ExitCode": 0,
+                        "Output": "<!DOCTYPE html><html lang=\"en\" data-theme=\"dark\"><head><meta charSet=\"utf-8\"/><title>Linkwarden</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><meta name=\"theme-color\" content=\"#ffffff\"/><link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\"/><link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/favicon-32x32.png\"/><link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/favicon-16x16.png\"/><link rel=\"manifest\" href=\"/site.webmanifest\"/><meta name=\"next-head-count\" content=\"8\"/><link data-next-font=\"size-adjust\" rel=\"preconnect\" href=\"/\" crossorigin=\"anonymous\"/><link rel=\"preload\" href=\"/_next/static/css/6c3fa3985eb7b4e6.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/6c3fa3985eb7b4e6.css\" data-n-g=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/_next/static/chunks/webpack-4cf3a1b70f9bcafa.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-58ed7761b27a84ff.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-ab58a096c3a60c3d.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-f143a6a85f45fc77.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-4f20da6e829ec96e.js\" defer=\"\"></script><script src=\"/_next/static/sbzJEhQpDDf-V5FipSbJD/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/sbzJEhQpDDf-V5FipSbJD/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"sbzJEhQpDDf-V5FipSbJD\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"locale\":\"en\",\"locales\":[\"en\",\"it\",\"fr\",\"zh\",\"zh-TW\",\"uk\",\"pt-BR\",\"ja\",\"es\",\"de\",\"nl\",\"tr\",\"pl\",\"ru\"],\"defaultLocale\":\"en\",\"scriptLoader\":[]}</script></body></html>"
+                    },
+                    {
+                        "Start": "2025-07-22T13:05:39.430836392-04:00",
+                        "End": "2025-07-22T13:05:39.514974868-04:00",
+                        "ExitCode": 0,
+                        "Output": "<!DOCTYPE html><html lang=\"en\" data-theme=\"dark\"><head><meta charSet=\"utf-8\"/><title>Linkwarden</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><meta name=\"theme-color\" content=\"#ffffff\"/><link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\"/><link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/favicon-32x32.png\"/><link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/favicon-16x16.png\"/><link rel=\"manifest\" href=\"/site.webmanifest\"/><meta name=\"next-head-count\" content=\"8\"/><link data-next-font=\"size-adjust\" rel=\"preconnect\" href=\"/\" crossorigin=\"anonymous\"/><link rel=\"preload\" href=\"/_next/static/css/6c3fa3985eb7b4e6.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/6c3fa3985eb7b4e6.css\" data-n-g=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/_next/static/chunks/webpack-4cf3a1b70f9bcafa.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-58ed7761b27a84ff.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-ab58a096c3a60c3d.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-f143a6a85f45fc77.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-4f20da6e829ec96e.js\" defer=\"\"></script><script src=\"/_next/static/sbzJEhQpDDf-V5FipSbJD/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/sbzJEhQpDDf-V5FipSbJD/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"sbzJEhQpDDf-V5FipSbJD\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"locale\":\"en\",\"locales\":[\"en\",\"it\",\"fr\",\"zh\",\"zh-TW\",\"uk\",\"pt-BR\",\"ja\",\"es\",\"de\",\"nl\",\"tr\",\"pl\",\"ru\"],\"defaultLocale\":\"en\",\"scriptLoader\":[]}</script></body></html>"
+                    },
+                    {
+                        "Start": "2025-07-22T13:06:09.516524569-04:00",
+                        "End": "2025-07-22T13:06:09.599306615-04:00",
+                        "ExitCode": 0,
+                        "Output": "<!DOCTYPE html><html lang=\"en\" data-theme=\"dark\"><head><meta charSet=\"utf-8\"/><title>Linkwarden</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><meta name=\"theme-color\" content=\"#ffffff\"/><link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\"/><link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/favicon-32x32.png\"/><link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/favicon-16x16.png\"/><link rel=\"manifest\" href=\"/site.webmanifest\"/><meta name=\"next-head-count\" content=\"8\"/><link data-next-font=\"size-adjust\" rel=\"preconnect\" href=\"/\" crossorigin=\"anonymous\"/><link rel=\"preload\" href=\"/_next/static/css/6c3fa3985eb7b4e6.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/6c3fa3985eb7b4e6.css\" data-n-g=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/_next/static/chunks/webpack-4cf3a1b70f9bcafa.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-58ed7761b27a84ff.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-ab58a096c3a60c3d.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-f143a6a85f45fc77.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-4f20da6e829ec96e.js\" defer=\"\"></script><script src=\"/_next/static/sbzJEhQpDDf-V5FipSbJD/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/sbzJEhQpDDf-V5FipSbJD/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"sbzJEhQpDDf-V5FipSbJD\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"locale\":\"en\",\"locales\":[\"en\",\"it\",\"fr\",\"zh\",\"zh-TW\",\"uk\",\"pt-BR\",\"ja\",\"es\",\"de\",\"nl\",\"tr\",\"pl\",\"ru\"],\"defaultLocale\":\"en\",\"scriptLoader\":[]}</script></body></html>"
+                    }
+                ]
+            }
+        },
+        "Image": "sha256:a3231fc5ba61594222be1bf89acac95a9d68c4a7bc90bd5e848a58dd500ab21f",
+        "ResolvConfPath": "/var/lib/docker/containers/dfd89dfc172df011c90adde26cfc265f3536eb710059141c92a489ec3ea2344a/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/dfd89dfc172df011c90adde26cfc265f3536eb710059141c92a489ec3ea2344a/hostname",
+        "HostsPath": "/var/lib/docker/containers/dfd89dfc172df011c90adde26cfc265f3536eb710059141c92a489ec3ea2344a/hosts",
+        "LogPath": "/var/lib/docker/containers/dfd89dfc172df011c90adde26cfc265f3536eb710059141c92a489ec3ea2344a/dfd89dfc172df011c90adde26cfc265f3536eb710059141c92a489ec3ea2344a-json.log",
+        "Name": "/linkwarden",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/home/bryanwi09/docker/linkwarden/data:/data/data:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "linkwarden_linkwarden",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": [],
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "ID": "dfd89dfc172df011c90adde26cfc265f3536eb710059141c92a489ec3ea2344a",
+                "LowerDir": "/var/lib/docker/overlay2/cb2cb317d1ddf65671187fc6a8e28d87af9a75729b2a1e67ea3ee15adec573e6-init/diff:/var/lib/docker/overlay2/0be258abb41bfb4be0215ed72ae9039907cbdb2aaacfd0bec7b09194f96d6e92/diff:/var/lib/docker/overlay2/e94cfa996e0347c312bae73649f3a9665e8684ee27d3747270465337b4d7997b/diff:/var/lib/docker/overlay2/3fd4895a9bfe8093f8f7ca3b9f3341c66e28c33647e0949500b9cbfac330a951/diff:/var/lib/docker/overlay2/b1f697fce99d682c1ae3fa986c1efb23a83e036ad5bd0f32b322d9ce6e4c2c4a/diff:/var/lib/docker/overlay2/2820f3fb537f0a1364256a59688c38c164f2bfbe1876e37f6fabea3616df89f0/diff:/var/lib/docker/overlay2/5cebdabd8691f6384a1ef0ad007e4bdec1e6c17c77b7b97e6b359602eb17a6ba/diff:/var/lib/docker/overlay2/6fc423ba04e24361db90fe6e08cb9fc9f23a129d9b5ea77a15b7c658204aa391/diff:/var/lib/docker/overlay2/970d84422162c7e3cb6eb9e5b825090c409ce29529aa0ba8b0bef3dd4e2fc7f5/diff:/var/lib/docker/overlay2/f0c68d170c881a69b6872adcc3500ee0aec871215b803c64d975795769919a98/diff:/var/lib/docker/overlay2/920f52426352fbd2458cb520c27eb626533f315f7e4f6cc4ec6f7d1d001586c5/diff:/var/lib/docker/overlay2/3bb039a0bf2fc5b253a4ac384313b3f36225c1c056004007b47b55050d1cd0af/diff:/var/lib/docker/overlay2/c83616f9520f0322376806f7f3562201cb13b9a92e487c025a02f1e3b8c88ead/diff:/var/lib/docker/overlay2/aec3e9a641c1bc0a8443678a2112ee92590e89a876d4d617e4ab48a16ec6c755/diff:/var/lib/docker/overlay2/f88faf2a4c0024fbe0cb7435f15e456dcc70bb86b1363c3df029df24eef10049/diff:/var/lib/docker/overlay2/f5fcda70fae247426f9758c2a5d5e9f4056fed6d1d55ab5b2217a67e85dae1fc/diff:/var/lib/docker/overlay2/f896c031d51b052cf3250fc17fbaf331b4a91072fcc572eacbe3dc87fae4af47/diff",
+                "MergedDir": "/var/lib/docker/overlay2/cb2cb317d1ddf65671187fc6a8e28d87af9a75729b2a1e67ea3ee15adec573e6/merged",
+                "UpperDir": "/var/lib/docker/overlay2/cb2cb317d1ddf65671187fc6a8e28d87af9a75729b2a1e67ea3ee15adec573e6/diff",
+                "WorkDir": "/var/lib/docker/overlay2/cb2cb317d1ddf65671187fc6a8e28d87af9a75729b2a1e67ea3ee15adec573e6/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/bryanwi09/docker/linkwarden/data",
+                "Destination": "/data/data",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "dfd89dfc172d",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "3000/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "NEXTAUTH_URL=https://links.bryanwills.dev/api/v1/auth",
+                "NEXTAUTH_SECRET=your-very-secure-random-secret-here-change-this",
+                "POSTGRES_DB=linkwarden",
+                "POSTGRES_USER=linkwarden",
+                "POSTGRES_PASSWORD=your-secure-postgres-password-here",
+                "DATABASE_URL=postgresql://linkwarden:your-secure-postgres-password-here@postgres:5432/linkwarden",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NODE_VERSION=22.14.0",
+                "YARN_VERSION=1.22.22"
+            ],
+            "Cmd": [
+                "sh",
+                "-c",
+                "yarn prisma:deploy && yarn concurrently:start"
+            ],
+            "Healthcheck": {
+                "Test": [
+                    "CMD",
+                    "/usr/bin/curl",
+                    "--silent",
+                    "--fail",
+                    "http://127.0.0.1:3000/"
+                ],
+                "Interval": 30000000000,
+                "Timeout": 5000000000,
+                "StartPeriod": 10000000000,
+                "Retries": 3
+            },
+            "Image": "ghcr.io/linkwarden/linkwarden:latest",
+            "Volumes": {
+                "/data/data": {}
+            },
+            "WorkingDir": "/data",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "e08f894e4ef9a132f864c448f6de44c3e830f72fb9cfbd8aae69d20790f55cae",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "linkwarden",
+                "com.docker.compose.project.config_files": "docker-compose.yml",
+                "com.docker.compose.project.working_dir": "/home/bryanwi09/docker/linkwarden",
+                "com.docker.compose.service": "linkwarden",
+                "com.docker.compose.version": "1.29.2",
+                "org.opencontainers.image.created": "2025-07-05T04:35:03.141Z",
+                "org.opencontainers.image.description": "⚡️⚡️⚡️ Self-hosted collaborative bookmark manager to collect, organize, and preserve webpages, articles, and documents.",
+                "org.opencontainers.image.licenses": "AGPL-3.0",
+                "org.opencontainers.image.revision": "395f357fcb4524fcfc3b09e24e58a81209d40e17",
+                "org.opencontainers.image.source": "https://github.com/linkwarden/linkwarden",
+                "org.opencontainers.image.title": "linkwarden",
+                "org.opencontainers.image.url": "https://github.com/linkwarden/linkwarden",
+                "org.opencontainers.image.version": "v2.11.3",
+                "traefik.docker.network": "proxy",
+                "traefik.enable": "true",
+                "traefik.http.middlewares.linkwarden-https-redirect.redirectscheme.scheme": "https",
+                "traefik.http.routers.linkwarden-secure.entrypoints": "https",
+                "traefik.http.routers.linkwarden-secure.rule": "Host(`links.bryanwills.dev`)",
+                "traefik.http.routers.linkwarden-secure.service": "linkwarden",
+                "traefik.http.routers.linkwarden-secure.tls": "true",
+                "traefik.http.routers.linkwarden-secure.tls.certresolver": "letsencrypt",
+                "traefik.http.routers.linkwarden.entrypoints": "http",
+                "traefik.http.routers.linkwarden.middlewares": "linkwarden-https-redirect",
+                "traefik.http.routers.linkwarden.rule": "Host(`links.bryanwills.dev`)",
+                "traefik.http.services.linkwarden.loadbalancer.server.port": "3000"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "aff5c4e5c0c3f73de162d7455020bf48b1f3149f3c03f123227e42a91cd28a3e",
+            "SandboxKey": "/var/run/docker/netns/aff5c4e5c0c3",
+            "Ports": {
+                "3000/tcp": null
+            },
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "linkwarden_linkwarden": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "dfd89dfc172d",
+                        "linkwarden"
+                    ],
+                    "MacAddress": "a2:f0:51:cf:d7:13",
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "255a3231a50fc909a4035d6cc05281a34f01ba6f9bd72831fa448f4634dd9477",
+                    "EndpointID": "0ad09becf4f6bbdc01a80492142c88dad548f18b3518e1dbe330c5fe33ac7c2c",
+                    "Gateway": "172.23.0.1",
+                    "IPAddress": "172.23.0.3",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "linkwarden",
+                        "dfd89dfc172d"
+                    ]
+                },
+                "proxy": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "dfd89dfc172d",
+                        "linkwarden"
+                    ],
+                    "MacAddress": "82:13:93:45:f4:69",
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "4c46364ee600de1ac850ce68c1b2c05b63ac5bd0bd9588877150f55e4296dc64",
+                    "EndpointID": "a5027876c9f48b91b1653c539a7c4f5cef0e8d8af79a44ab3b22a4e1a7004dbe",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.12",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "linkwarden",
+                        "dfd89dfc172d"
+                    ]
+                }
+            }
+        }
+    }
+]

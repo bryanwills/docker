@@ -6,13 +6,27 @@ services:
     container_name: portainer
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.portainer.rule=Host(`portainer.bryanwills.dev`)"
-      - "traefik.http.routers.portainer.entrypoints=websecure"
-      - "traefik.http.routers.portainer.tls.certresolver=letsencrypt"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.middlewares.portainer-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.portainer-http.entrypoints=web"
+      - "traefik.http.routers.portainer-http.middlewares=portainer-https-redirect"
+      - "traefik.http.routers.portainer-http.rule=Host(`portainer.bryanwills.dev`)"
+      - "traefik.http.routers.portainer-secure.entrypoints=websecure"
+      - "traefik.http.routers.portainer-secure.rule=Host(`portainer.bryanwills.dev`)"
+      - "traefik.http.routers.portainer-secure.service=portainer"
+      - "traefik.http.routers.portainer-secure.tls=true"
+      - "traefik.http.routers.portainer-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.services.portainer.loadbalancer.server.port=9000"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "portainer_data:/data"
     restart: unless-stopped
+    networks:
+      - proxy
 
 volumes:
   portainer_data:
+
+networks:
+  proxy:
+    external: true

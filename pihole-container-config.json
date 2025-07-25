@@ -1,0 +1,368 @@
+[
+    {
+        "Id": "9648204b1ac80ebf32a8e6ce4922b883c811d661a05482d4a5125d174be21385",
+        "Created": "2025-07-22T15:04:00.888877696Z",
+        "Path": "start.sh",
+        "Args": [],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 2811917,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2025-07-22T15:24:00.581122301Z",
+            "FinishedAt": "2025-07-22T15:24:00.189276836Z",
+            "Health": {
+                "Status": "healthy",
+                "FailingStreak": 0,
+                "Log": [
+                    {
+                        "Start": "2025-07-22T13:01:08.779960926-04:00",
+                        "End": "2025-07-22T13:01:08.889670585-04:00",
+                        "ExitCode": 0,
+                        "Output": "127.0.0.1\n"
+                    },
+                    {
+                        "Start": "2025-07-22T13:01:38.890917061-04:00",
+                        "End": "2025-07-22T13:01:38.994342584-04:00",
+                        "ExitCode": 0,
+                        "Output": "127.0.0.1\n"
+                    },
+                    {
+                        "Start": "2025-07-22T13:02:08.995969029-04:00",
+                        "End": "2025-07-22T13:02:09.092152297-04:00",
+                        "ExitCode": 0,
+                        "Output": "127.0.0.1\n"
+                    },
+                    {
+                        "Start": "2025-07-22T13:02:39.093920507-04:00",
+                        "End": "2025-07-22T13:02:39.181367259-04:00",
+                        "ExitCode": 0,
+                        "Output": "127.0.0.1\n"
+                    },
+                    {
+                        "Start": "2025-07-22T13:03:09.183135414-04:00",
+                        "End": "2025-07-22T13:03:09.278297813-04:00",
+                        "ExitCode": 0,
+                        "Output": "127.0.0.1\n"
+                    }
+                ]
+            }
+        },
+        "Image": "sha256:acf4228d4c8a34bd7d3c136d668c36eb76ebf81835562db472fe2e6ec22336ac",
+        "ResolvConfPath": "/var/lib/docker/containers/9648204b1ac80ebf32a8e6ce4922b883c811d661a05482d4a5125d174be21385/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/9648204b1ac80ebf32a8e6ce4922b883c811d661a05482d4a5125d174be21385/hostname",
+        "HostsPath": "/var/lib/docker/containers/9648204b1ac80ebf32a8e6ce4922b883c811d661a05482d4a5125d174be21385/hosts",
+        "LogPath": "/var/lib/docker/containers/9648204b1ac80ebf32a8e6ce4922b883c811d661a05482d4a5125d174be21385/9648204b1ac80ebf32a8e6ce4922b883c811d661a05482d4a5125d174be21385-json.log",
+        "Name": "/pihole",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/home/bryanwi09/docker/dns-adblock/etc-pihole:/etc/pihole:rw",
+                "/home/bryanwi09/docker/dns-adblock/etc-dnsmasq.d:/etc/dnsmasq.d:rw",
+                "/home/bryanwi09/docker/dns-adblock/var-log:/var/log:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "proxy",
+            "PortBindings": {
+                "53/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "53"
+                    }
+                ],
+                "53/udp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "53"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "ID": "9648204b1ac80ebf32a8e6ce4922b883c811d661a05482d4a5125d174be21385",
+                "LowerDir": "/var/lib/docker/overlay2/2cb1fa153c2e61ab507c5ca0c545bccad0017eefdbe8f73713f1495e28337069-init/diff:/var/lib/docker/overlay2/71563c7d4dc986889096b1eca85de4e5f2627c57a6d8762683e3816da7589b83/diff:/var/lib/docker/overlay2/6ad79d02fc09b0aefaf387db3d41bbcabc797290a66320a7d6d3018772f72cb7/diff:/var/lib/docker/overlay2/4ead34a639896eb93b0313a2c78e180146739d2ac04ba9cbbba74a9292b5b032/diff:/var/lib/docker/overlay2/05bb3ef7e7bf42bcadec30cb2cbc9c96ac0760e571ee68bd0a285f3d9e15bbbd/diff:/var/lib/docker/overlay2/3a65ca9bef63aa8c8e4ace50f73e283676b23d3a8f90bc684073b5a05f2a672e/diff:/var/lib/docker/overlay2/6049058708f97d4bc33bc2d7c9755e39745cff5e7e75206ffad7c1cc78773b91/diff:/var/lib/docker/overlay2/708df24ba549622f4b906b50dd19b2a945bc6737f455871d775735aeddc3a5d4/diff:/var/lib/docker/overlay2/3f8d184456c31f9ec54462091e565894dc26b7b80ab4ab8bbb4c1f1833080284/diff:/var/lib/docker/overlay2/42cf7e13fe2747033bce56e99bc649ecc03d86556096398889560018781a7f2b/diff:/var/lib/docker/overlay2/71ae612af0830323a0f893c9e01b8988980e2f731591d5e3611a1c36720bfae1/diff:/var/lib/docker/overlay2/6653a5cbc3e7a9c3f5bb16e9d271e1dcafa515644af5f78b60c1a4135f3b7ccd/diff",
+                "MergedDir": "/var/lib/docker/overlay2/2cb1fa153c2e61ab507c5ca0c545bccad0017eefdbe8f73713f1495e28337069/merged",
+                "UpperDir": "/var/lib/docker/overlay2/2cb1fa153c2e61ab507c5ca0c545bccad0017eefdbe8f73713f1495e28337069/diff",
+                "WorkDir": "/var/lib/docker/overlay2/2cb1fa153c2e61ab507c5ca0c545bccad0017eefdbe8f73713f1495e28337069/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/bryanwi09/docker/dns-adblock/etc-pihole",
+                "Destination": "/etc/pihole",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/bryanwi09/docker/dns-adblock/etc-dnsmasq.d",
+                "Destination": "/etc/dnsmasq.d",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/bryanwi09/docker/dns-adblock/var-log",
+                "Destination": "/var/log",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "9648204b1ac8",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "123/udp": {},
+                "443/tcp": {},
+                "53/tcp": {},
+                "53/udp": {},
+                "67/udp": {},
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "INSTALL_WEB_SERVER=true",
+                "DNSMASQ_LISTENING=all",
+                "TZ=America/New_York",
+                "VIRTUAL_HOST=dns.bryanwills.dev",
+                "CACHE_SIZE=10000",
+                "PROXY_LOCATION=pihole",
+                "ServerIP=172.18.0.8",
+                "LIGHTTPD_ENABLED=true",
+                "DNSMASQ_OPTS=--log-queries --log-facility=/var/log/pihole.log",
+                "DNSMASQ_USER=pihole",
+                "INSTALL_WEB_INTERFACE=true",
+                "PIHOLE_DNS_=8.8.8.8;8.8.4.4;1.1.1.1;1.0.0.1",
+                "WEBPASSWORD=K9ac!tgbvsd@55op",
+                "QUERY_LOGGING=true",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "FTL_CMD=no-daemon"
+            ],
+            "Cmd": null,
+            "Healthcheck": {
+                "Test": [
+                    "CMD-SHELL",
+                    "dig -p $(pihole-FTL --config dns.port) +short +norecurse +retry=0 @127.0.0.1 pi.hole || exit 1"
+                ]
+            },
+            "Image": "pihole/pihole:latest",
+            "Volumes": null,
+            "WorkingDir": "/",
+            "Entrypoint": [
+                "start.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "e9c995513ca706e36b2b18af3c8770a97dfc82c2425ffe8d65470835eb6c1b76",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:acf4228d4c8a34bd7d3c136d668c36eb76ebf81835562db472fe2e6ec22336ac",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "dns-adblock",
+                "com.docker.compose.project.config_files": "/home/bryanwi09/docker/dns-adblock/docker-compose.yml",
+                "com.docker.compose.project.working_dir": "/home/bryanwi09/docker/dns-adblock",
+                "com.docker.compose.service": "pihole",
+                "com.docker.compose.version": "2.35.1",
+                "org.opencontainers.image.created": "2025-07-14T21:58:57.014Z",
+                "org.opencontainers.image.description": "Pi-hole in a docker container",
+                "org.opencontainers.image.licenses": "NOASSERTION",
+                "org.opencontainers.image.revision": "b2064c8fb7def5483c395876ac56ad7ce6e087ba",
+                "org.opencontainers.image.source": "https://github.com/pi-hole/docker-pi-hole",
+                "org.opencontainers.image.title": "docker-pi-hole",
+                "org.opencontainers.image.url": "https://github.com/pi-hole/docker-pi-hole",
+                "org.opencontainers.image.version": "2025.07.1",
+                "traefik.docker.network": "proxy",
+                "traefik.enable": "true",
+                "traefik.http.middlewares.pihole-https-redirect.redirectscheme.scheme": "https",
+                "traefik.http.routers.pihole-secure.entrypoints": "https",
+                "traefik.http.routers.pihole-secure.rule": "Host(`dns.bryanwills.dev`)",
+                "traefik.http.routers.pihole-secure.service": "pihole",
+                "traefik.http.routers.pihole-secure.tls": "true",
+                "traefik.http.routers.pihole-secure.tls.certresolver": "letsencrypt",
+                "traefik.http.routers.pihole.entrypoints": "http",
+                "traefik.http.routers.pihole.middlewares": "pihole-https-redirect",
+                "traefik.http.routers.pihole.rule": "Host(`dns.bryanwills.dev`)",
+                "traefik.http.services.pihole.loadbalancer.server.port": "80"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "21028b935cb14604ff15a99291faae1d6b70f13002e3ba28aa4fbdd44622457a",
+            "SandboxKey": "/var/run/docker/netns/21028b935cb1",
+            "Ports": {
+                "123/udp": null,
+                "443/tcp": null,
+                "53/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "53"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "53"
+                    }
+                ],
+                "53/udp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "53"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "53"
+                    }
+                ],
+                "67/udp": null,
+                "80/tcp": null
+            },
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "proxy": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "pihole",
+                        "pihole"
+                    ],
+                    "MacAddress": "de:e6:00:ee:91:5a",
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "4c46364ee600de1ac850ce68c1b2c05b63ac5bd0bd9588877150f55e4296dc64",
+                    "EndpointID": "eb9bb65c18be169dafc6d8af76c81596dc24f096d3a49b80de6b981e923d0e46",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.5",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "pihole",
+                        "9648204b1ac8"
+                    ]
+                }
+            }
+        }
+    }
+]

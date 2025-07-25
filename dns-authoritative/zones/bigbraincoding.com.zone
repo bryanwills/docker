@@ -1,0 +1,17 @@
+$TTL    86400
+@       IN      SOA     ns1.bigbraincoding.com. admin.bigbraincoding.com. (
+                        2024072501      ; Serial
+                        3600            ; Refresh
+                        1800            ; Retry
+                        1209600         ; Expire
+                        86400 )         ; Negative Cache TTL
+
+; Name servers
+@       IN      NS      ns1.bigbraincoding.com.
+@       IN      NS      ns2.bigbraincoding.com.
+
+; A records
+@       IN      A       1.2.3.4        ; Replace with your server IP
+ns1     IN      A       1.2.3.4        ; Replace with your server IP
+ns2     IN      A       1.2.3.4        ; Replace with your server IP
+www     IN      A       1.2.3.4        ; Replace with your server IP

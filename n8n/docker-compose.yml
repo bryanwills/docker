@@ -1,0 +1,39 @@
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n
+    restart: unless-stopped
+    environment:
+      - DB_TYPE=sqlite
+      - DB_SQLITE_DATABASE=/home/node/.n8n/database.sqlite
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_PASSWORD=yOp8EN8djxf1V37SE1+lJQ==
+      - N8N_PROTOCOL=https
+      - N8N_HOST=n8n.bryanwills.dev
+      - N8N_PORT=5678
+      - WEBHOOK_URL=https://n8n.bryanwills.dev/
+      - GENERIC_TIMEZONE=America/Louisville
+      - NODE_ENV=production
+    volumes:
+      - /home/bryanwi09/docker/n8n/data:/home/node/.n8n
+      - /home/bryanwi09/docker/n8n/files:/files
+    labels:
+      - "traefik.docker.network=proxy"
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.n8n-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.n8n-secure.entrypoints=websecure"
+      - "traefik.http.routers.n8n-secure.rule=Host(`n8n.bryanwills.dev`)"
+      - "traefik.http.routers.n8n-secure.service=n8n"
+      - "traefik.http.routers.n8n-secure.tls=true"
+      - "traefik.http.routers.n8n-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.n8n-http.entrypoints=web"
+      - "traefik.http.routers.n8n-http.middlewares=n8n-https-redirect"
+      - "traefik.http.routers.n8n-http.rule=Host(`n8n.bryanwills.dev`)"
+      - "traefik.http.services.n8n.loadbalancer.server.port=5678"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

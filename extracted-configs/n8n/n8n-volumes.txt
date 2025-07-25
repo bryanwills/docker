@@ -1,0 +1,3 @@
+/home/bryanwi09/docker/n8n/data:/home/node/.n8n
+/home/bryanwi09/docker/n8n/files:/files
+

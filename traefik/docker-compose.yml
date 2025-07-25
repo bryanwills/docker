@@ -1,39 +1,60 @@
-version: "3.3"
-
+# version: "3.9"
 services:
   traefik:
     image: traefik:v3.3
     container_name: traefik
-    #security_opt:
-    #  - no-new-privileges:true # helps to increase security
-    env_file:
-      - .env
-    command:
-      - "--configFile=/etc/traefik/traefik.yml"
+    restart: unless-stopped
+    environment:
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      # - HOSTNAME=25ead172d6a4
+      - HOSTNAME=traefik.bryanwills.dev
+      - TRAEFIK_DASHBOARD_CREDENTIALS=admin:$$2y$$05$$Ag0WbGKS.oMQLWqhWp4ENeVIGKmX5JtB1HRY2bcLZULHM0rN3BRxO
+      - HOME=/root
+    volumes:
+      - /home/bryanwi09/docker/traefik/logs:/var/log/traefik
+      - /etc/localtime:/etc/localtime
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/bryanwi09/docker/traefik/traefik.yml:/traefik.yml
+      - /home/bryanwi09/docker/traefik/acme.json:/letsencrypt/acme.json
+      - /home/bryanwi09/docker/traefik/config.yaml:/config.yaml
     ports:
       - "80:80"
       - "443:443"
-      - "8080:8080" # Traefik dashboard
-    environment:
-      - TRAEFIK_DASHBOARD_CREDENTIALS="${TRAEFIK_DASHBOARD_CREDENTIALS}"
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock.ro"
-      - "./traefik.yml:/etc/traefik/traefik.yml:ro"
-      - "./letsencrypt:/letsencrypt"
     labels:
+      - "com.docker.compose.config-hash=a0c389203953d0784e820c35a3a0515f3d1ec3a56a4b90c862ea8213f22618f1"
+      - "com.docker.compose.container-number=1"
+      - "com.docker.compose.depends_on="
+      - "com.docker.compose.image=sha256:3a1e150bf4c5610ac288b87c5e42e9ddc514e72b7ecdc43bde4776bda41edbc9"
+      - "com.docker.compose.oneoff=False"
+      - "com.docker.compose.project=traefik"
+      - "com.docker.compose.project.config_files=/home/bryanwi09/docker/traefik/docker-compose.yml"
+      - "com.docker.compose.project.working_dir=/home/bryanwi09/docker/traefik"
+      - "com.docker.compose.service=traefik"
+      - "com.docker.compose.version=2.35.1"
+      - "org.opencontainers.image.description=A modern reverse-proxy"
+      - "org.opencontainers.image.documentation=https://docs.traefik.io"
+      - "org.opencontainers.image.source=https://github.com/traefik/traefik"
+      - "org.opencontainers.image.title=Traefik"
+      - "org.opencontainers.image.url=https://traefik.io"
+      - "org.opencontainers.image.vendor=Traefik Labs"
+      - "org.opencontainers.image.version=v3.3.6"
       - "traefik.enable=true"
-      - "traefik.http.routers.traefik.rule=Host(`traefik.bryanwills.dev`) && (PathPrefix(`api`) || PathPrefix(`/dashboard`))"
-      - "traefik.http.middlewares.traefik-auth.basicauth.users=${TRAEFIK_DASHBOARD_CREDENTIALS}"
-      - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
-      - "traefik.http.routers.traefik.middlewares=traefik-https-redirect"
+      - "traefik.http.middlewares.traefik-auth.basicauth.users=admin:$$2y$$05$$Ag0WbGKS.oMQLWqhWp4ENeVIGKmX5JtB1HRY2bcLZULHM0rN3BRxO"
+      - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.dashboard.service=api@internal"
       - "traefik.http.routers.traefik-secure.entrypoints=https"
-      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.bryanwills.dev`)"
       - "traefik.http.routers.traefik-secure.middlewares=traefik-auth"
+      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.bryanwills.dev`)"
+      - "traefik.http.routers.traefik-secure.service=api@internal"
       - "traefik.http.routers.traefik-secure.tls=true"
-      - "traefik.http.routers.traefik.entrypoints=websecure"
-      - "traefik.http.routers.traefik.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.traefik.service=api@internal"
-      - "traefik.http.routers.traefik.middlewares=auth"
-    #      - "traefik.http.middlewares.auth.basicauth,users=${BASIC_AUTH_USER_PASSWORD}"
-    restart: unless-stopped
+      - "traefik.http.routers.traefik-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.traefik.entrypoints=http"
+      - "traefik.http.routers.traefik.middlewares=traefik-https-redirect"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.bryanwills.dev`)"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

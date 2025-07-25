@@ -1,0 +1,7 @@
+/home/bryanwi09/docker/traefik/logs:/var/log/traefik
+/etc/localtime:/etc/localtime
+/var/run/docker.sock:/var/run/docker.sock
+/home/bryanwi09/docker/traefik/traefik.yaml:/traefik.yaml
+/home/bryanwi09/docker/traefik/acme.json:/acme.json
+/home/bryanwi09/docker/traefik/config.yaml:/config.yaml
+

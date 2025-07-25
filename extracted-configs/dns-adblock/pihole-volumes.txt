@@ -1,0 +1,4 @@
+/home/bryanwi09/docker/dns-adblock/etc-pihole:/etc/pihole
+/home/bryanwi09/docker/dns-adblock/etc-dnsmasq.d:/etc/dnsmasq.d
+/home/bryanwi09/docker/dns-adblock/var-log:/var/log
+

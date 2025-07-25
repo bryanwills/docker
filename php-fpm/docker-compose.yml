@@ -1,0 +1,20 @@
+services:
+  php-fpm:
+    image: php:8.4-fpm-alpine
+    container_name: php-fpm
+    restart: unless-stopped
+    volumes:
+      - /var/www/bigbraincoding.com/html:/var/www/bigbraincoding.com/html
+      - ./php.ini:/usr/local/etc/php/conf.d/custom.ini
+      - ./www.conf:/usr/local/etc/php-fpm.d/www.conf
+    networks:
+      - proxy
+    environment:
+      - PHP_FPM_USER=www-data
+      - PHP_FPM_GROUP=www-data
+    ports:
+      - "9000:9000"
+
+networks:
+  proxy:
+    external: true

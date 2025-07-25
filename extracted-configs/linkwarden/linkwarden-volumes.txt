@@ -1,0 +1,2 @@
+/home/bryanwi09/docker/linkwarden/data:/data/data
+

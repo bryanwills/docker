@@ -1,0 +1,31 @@
+$TTL    86400
+@       IN      SOA     ns1.bryanwills.dev. admin.bryanwills.dev. (
+                        2024072501      ; Serial
+                        3600            ; Refresh
+                        1800            ; Retry
+                        1209600         ; Expire
+                        86400 )         ; Negative Cache TTL
+
+; Name servers
+@       IN      NS      ns1.bryanwills.dev.
+@       IN      NS      ns2.bryanwills.dev.
+
+; A records
+@       IN      A       1.2.3.4        ; Replace with your server IP
+ns1     IN      A       1.2.3.4        ; Replace with your server IP
+ns2     IN      A       1.2.3.4        ; Replace with your server IP
+
+; Subdomains
+www     IN      A       1.2.3.4        ; Replace with your server IP
+n8n     IN      A       1.2.3.4        ; Replace with your server IP
+code    IN      A       1.2.3.4        ; Replace with your server IP
+dns     IN      A       1.2.3.4        ; Replace with your server IP
+vault   IN      A       1.2.3.4        ; Replace with your server IP
+portainer IN    A       1.2.3.4        ; Replace with your server IP
+draw    IN      A       1.2.3.4        ; Replace with your server IP
+docs    IN      A       1.2.3.4        ; Replace with your server IP
+it-tools IN     A       1.2.3.4        ; Replace with your server IP
+status  IN      A       1.2.3.4        ; Replace with your server IP
+homepage IN     A       1.2.3.4        ; Replace with your server IP
+links   IN      A       1.2.3.4        ; Replace with your server IP
+auth    IN      A       1.2.3.4        ; Replace with your server IP

@@ -1,0 +1,306 @@
+[
+    {
+        "Id": "07e14871300e8a2dbf7888ca74108c56739fec47fe224221eaa4530cdb2cea61",
+        "Created": "2025-07-09T02:31:45.578561322Z",
+        "Path": "/start.sh",
+        "Args": [],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 244304,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2025-07-09T02:31:45.781960029Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+                "Status": "healthy",
+                "FailingStreak": 0,
+                "Log": [
+                    {
+                        "Start": "2025-07-22T13:02:05.78224931-04:00",
+                        "End": "2025-07-22T13:02:05.875406938-04:00",
+                        "ExitCode": 0,
+                        "Output": "\"2025-07-22T17:02:05.872274Z\""
+                    },
+                    {
+                        "Start": "2025-07-22T13:03:05.876921301-04:00",
+                        "End": "2025-07-22T13:03:05.964143022-04:00",
+                        "ExitCode": 0,
+                        "Output": "\"2025-07-22T17:03:05.960960Z\""
+                    },
+                    {
+                        "Start": "2025-07-22T13:04:05.965746411-04:00",
+                        "End": "2025-07-22T13:04:06.066274797-04:00",
+                        "ExitCode": 0,
+                        "Output": "\"2025-07-22T17:04:06.063113Z\""
+                    },
+                    {
+                        "Start": "2025-07-22T13:05:06.067958813-04:00",
+                        "End": "2025-07-22T13:05:06.158466118-04:00",
+                        "ExitCode": 0,
+                        "Output": "\"2025-07-22T17:05:06.155085Z\""
+                    },
+                    {
+                        "Start": "2025-07-22T13:06:06.15934265-04:00",
+                        "End": "2025-07-22T13:06:06.256352971-04:00",
+                        "ExitCode": 0,
+                        "Output": "\"2025-07-22T17:06:06.253206Z\""
+                    }
+                ]
+            }
+        },
+        "Image": "sha256:032fced6c02ed83d6a5da88a2c629de425788ce1c6cc45775766d7cfbeb9f054",
+        "ResolvConfPath": "/var/lib/docker/containers/07e14871300e8a2dbf7888ca74108c56739fec47fe224221eaa4530cdb2cea61/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/07e14871300e8a2dbf7888ca74108c56739fec47fe224221eaa4530cdb2cea61/hostname",
+        "HostsPath": "/var/lib/docker/containers/07e14871300e8a2dbf7888ca74108c56739fec47fe224221eaa4530cdb2cea61/hosts",
+        "LogPath": "/var/lib/docker/containers/07e14871300e8a2dbf7888ca74108c56739fec47fe224221eaa4530cdb2cea61/07e14871300e8a2dbf7888ca74108c56739fec47fe224221eaa4530cdb2cea61-json.log",
+        "Name": "/vaultwarden",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/home/bryanwi09/docker/vaultwarden:/data:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "proxy",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": [],
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": [
+                "no-new-privileges:true"
+            ],
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "ID": "07e14871300e8a2dbf7888ca74108c56739fec47fe224221eaa4530cdb2cea61",
+                "LowerDir": "/var/lib/docker/overlay2/c3eedb27d8dcc3e55b85814a67c3ba992a7d0268ced17c1b3e71d6ce4924eb5c-init/diff:/var/lib/docker/overlay2/90b5b5e1e62e75e4753c5fdafcf03cec68b979f7c5020f6d162841845bd79b92/diff:/var/lib/docker/overlay2/cc52da8b11fdb0849c9247fe74e8af60e56e9e4cd86885c3388541ab652ffb41/diff:/var/lib/docker/overlay2/3e0ae3ecfa3cbcc658a703fc576ed8f0011dc0be907e34bea49938f4959c2e38/diff:/var/lib/docker/overlay2/cd8fd0cc7bdbe1b413298094671d23fc6bcc23f043a6c04d8e612d28660f0a56/diff:/var/lib/docker/overlay2/90fbca97469ea5be2ef199bc923ab7169df141bc4232f250c1027b7a2ff45c05/diff",
+                "MergedDir": "/var/lib/docker/overlay2/c3eedb27d8dcc3e55b85814a67c3ba992a7d0268ced17c1b3e71d6ce4924eb5c/merged",
+                "UpperDir": "/var/lib/docker/overlay2/c3eedb27d8dcc3e55b85814a67c3ba992a7d0268ced17c1b3e71d6ce4924eb5c/diff",
+                "WorkDir": "/var/lib/docker/overlay2/c3eedb27d8dcc3e55b85814a67c3ba992a7d0268ced17c1b3e71d6ce4924eb5c/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/bryanwi09/docker/vaultwarden",
+                "Destination": "/data",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "07e14871300e",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "DOMAIN=https://vault.bryanwills.dev",
+                "WEBSOCKET_ENABLED=true",
+                "SENDS_ALLOWED=true",
+                "PASSWORD_ITERATIONS=500000",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "ROCKET_PROFILE=release",
+                "ROCKET_ADDRESS=0.0.0.0",
+                "ROCKET_PORT=80",
+                "DEBIAN_FRONTEND=noninteractive"
+            ],
+            "Cmd": [
+                "/start.sh"
+            ],
+            "Healthcheck": {
+                "Test": [
+                    "CMD",
+                    "/healthcheck.sh"
+                ],
+                "Interval": 60000000000,
+                "Timeout": 10000000000
+            },
+            "Image": "vaultwarden/server:latest",
+            "Volumes": {
+                "/data": {}
+            },
+            "WorkingDir": "/",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "6f1956a11a27da7589ad6bb8edc03250847b0785e03910df7cde91bee46e5a35",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "vaultwarden",
+                "com.docker.compose.project.config_files": "docker-compose.yml",
+                "com.docker.compose.project.working_dir": "/home/bryanwi09/docker/vaultwarden",
+                "com.docker.compose.service": "vaultwarden",
+                "com.docker.compose.version": "1.29.2",
+                "org.opencontainers.image.created": "2025-05-26T21:22:55+00:00",
+                "org.opencontainers.image.description": "Unofficial Bitwarden compatible server written in Rust - 1.34.1",
+                "org.opencontainers.image.documentation": "https://github.com/dani-garcia/vaultwarden/wiki",
+                "org.opencontainers.image.licenses": "AGPL-3.0-only",
+                "org.opencontainers.image.revision": "53f58b14d5626abfcefd52586ec9e78d067a2334",
+                "org.opencontainers.image.source": "https://github.com/dani-garcia/vaultwarden",
+                "org.opencontainers.image.url": "https://github.com/dani-garcia/vaultwarden",
+                "org.opencontainers.image.version": "1.34.1",
+                "traefik.docker.network": "proxy",
+                "traefik.enable": "true",
+                "traefik.http.middlewares.vaultwarden-https-redirect.redirectscheme.scheme": "https",
+                "traefik.http.routers.vaultwarden-secure.entrypoints": "https",
+                "traefik.http.routers.vaultwarden-secure.rule": "Host(`vault.bryanwills.dev`)",
+                "traefik.http.routers.vaultwarden-secure.service": "vaultwarden",
+                "traefik.http.routers.vaultwarden-secure.tls": "true",
+                "traefik.http.routers.vaultwarden-secure.tls.certresolver": "letsencrypt",
+                "traefik.http.routers.vaultwarden.entrypoints": "http",
+                "traefik.http.routers.vaultwarden.middlewares": "vaultwarden-https-redirect",
+                "traefik.http.routers.vaultwarden.rule": "Host(`vault.bryanwills.dev`)",
+                "traefik.http.services.vaultwarden.loadbalancer.server.port": "80"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "af4cdec1dce8f83a501dcf471473b2debfc574cb4c65cc73a78e16c6a243cddf",
+            "SandboxKey": "/var/run/docker/netns/af4cdec1dce8",
+            "Ports": {
+                "80/tcp": null
+            },
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "proxy": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "vaultwarden",
+                        "07e14871300e"
+                    ],
+                    "MacAddress": "7a:cc:05:fd:2e:24",
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "4c46364ee600de1ac850ce68c1b2c05b63ac5bd0bd9588877150f55e4296dc64",
+                    "EndpointID": "dc32b11038c810838b961da9bef708f9d50781fcb47b98992122857be89c3e43",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.6",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "vaultwarden",
+                        "07e14871300e"
+                    ]
+                }
+            }
+        }
+    }
+]

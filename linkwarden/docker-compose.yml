@@ -1,0 +1,70 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: linkwarden-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: linkwarden
+      POSTGRES_USER: linkwarden
+      POSTGRES_PASSWORD: linkwarden123
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    networks:
+      - proxy
+
+  linkwarden:
+    image: ghcr.io/linkwarden/linkwarden:latest
+    container_name: linkwarden
+    restart: unless-stopped
+    environment:
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - HOSTNAME=dfd89dfc172d
+      - NEXTAUTH_URL=https://links.bryanwills.dev/api/v1/auth
+      - NEXTAUTH_SECRET=QScn7jpxx2A0Vei40iAryze9PH9XzLBB7W1mv6ZOVgw=
+      - POSTGRES_DB=linkwarden
+      - POSTGRES_USER=linkwarden
+      - POSTGRES_PASSWORD=linkwarden123
+      - DATABASE_URL=postgresql://linkwarden:linkwarden123@postgres:5432/linkwarden
+      - NODE_VERSION=22.14.0
+      - YARN_VERSION=1.22.22
+      - HOME=/root
+    volumes:
+      - /home/bryanwi09/docker/linkwarden/data:/data/data
+    depends_on:
+      - postgres
+    labels:
+      - "com.docker.compose.config-hash=e08f894e4ef9a132f864c448f6de44c3e830f72fb9cfbd8aae69d20790f55cae"
+      - "com.docker.compose.container-number=1"
+      - "com.docker.compose.oneoff=False"
+      - "com.docker.compose.project=linkwarden"
+      - "com.docker.compose.project.config_files=docker-compose.yml"
+      - "com.docker.compose.project.working_dir=/home/bryanwi09/docker/linkwarden"
+      - "com.docker.compose.service=linkwarden"
+      - "com.docker.compose.version=1.29.2"
+      - "org.opencontainers.image.created=2025-07-05T04:35:03.141Z"
+      - "org.opencontainers.image.description=⚡️⚡️⚡️ Self-hosted collaborative bookmark manager to collect, organize, and preserve webpages, articles, and documents."
+      - "org.opencontainers.image.licenses=AGPL-3.0"
+      - "org.opencontainers.image.revision=395f357fcb4524fcfc3b09e24e58a81209d40e17"
+      - "org.opencontainers.image.source=https://github.com/linkwarden/linkwarden"
+      - "org.opencontainers.image.title=linkwarden"
+      - "org.opencontainers.image.url=https://github.com/linkwarden/linkwarden"
+      - "org.opencontainers.image.version=v2.11.3"
+      - "traefik.docker.network=proxy"
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.linkwarden-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.linkwarden-secure.entrypoints=websecure"
+      - "traefik.http.routers.linkwarden-secure.rule=Host(`links.bryanwills.dev`)"
+      - "traefik.http.routers.linkwarden-secure.service=linkwarden"
+      - "traefik.http.routers.linkwarden-secure.tls=true"
+      - "traefik.http.routers.linkwarden-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.linkwarden-http.entrypoints=web"
+      - "traefik.http.routers.linkwarden-http.middlewares=linkwarden-https-redirect"
+      - "traefik.http.routers.linkwarden-http.rule=Host(`links.bryanwills.dev`)"
+      - "traefik.http.services.linkwarden.loadbalancer.server.port=3000"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

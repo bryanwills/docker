@@ -1,0 +1,87 @@
+version: "3.9"
+services:
+  postgresql:
+    image: docker.io/library/postgres:12-alpine
+    container_name: authentik_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: ${PG_PASS:?database password required}
+      POSTGRES_USER: ${PG_USER:-authentik}
+      POSTGRES_DB: ${PG_DB:-authentik}
+    env_file:
+      - .env
+    volumes:
+      - ./database:/var/lib/postgresql/data
+    networks:
+      - proxy
+
+  redis:
+    image: docker.io/library/redis:alpine
+    container_name: authentik_redis
+    restart: unless-stopped
+    volumes:
+      - ./redis:/data
+    networks:
+      - proxy
+
+  server:
+    image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2024.8.3}
+    container_name: authentik_server
+    restart: unless-stopped
+    environment:
+      AUTHENTIK_REDIS__HOST: redis
+      AUTHENTIK_POSTGRESQL__HOST: postgresql
+      AUTHENTIK_POSTGRESQL__USER: ${PG_USER:-authentik}
+      AUTHENTIK_POSTGRESQL__NAME: ${PG_DB:-authentik}
+      AUTHENTIK_POSTGRESQL__PASSWORD: ${PG_PASS}
+    env_file:
+      - .env
+    volumes:
+      - ./media:/media
+      - ./custom-templates:/templates
+      - ./certs:/certs
+    networks:
+      - proxy
+    depends_on:
+      - postgresql
+      - redis
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.middlewares.authentik-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.authentik-http.entrypoints=web"
+      - "traefik.http.routers.authentik-http.middlewares=authentik-https-redirect"
+      - "traefik.http.routers.authentik-http.rule=Host(`auth.bryanwills.dev`)"
+      - "traefik.http.routers.authentik-secure.entrypoints=websecure"
+      - "traefik.http.routers.authentik-secure.rule=Host(`auth.bryanwills.dev`)"
+      - "traefik.http.routers.authentik-secure.service=authentik"
+      - "traefik.http.routers.authentik-secure.tls=true"
+      - "traefik.http.routers.authentik-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.services.authentik.loadbalancer.server.port=9000"
+
+  worker:
+    image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2024.8.3}
+    container_name: authentik_worker
+    restart: unless-stopped
+    environment:
+      AUTHENTIK_REDIS__HOST: redis
+      AUTHENTIK_POSTGRESQL__HOST: postgresql
+      AUTHENTIK_POSTGRESQL__USER: ${PG_USER:-authentik}
+      AUTHENTIK_POSTGRESQL__NAME: ${PG_DB:-authentik}
+      AUTHENTIK_POSTGRESQL__PASSWORD: ${PG_PASS}
+    env_file:
+      - .env
+    volumes:
+      - ./media:/media
+      - ./custom-templates:/templates
+      - ./certs:/certs
+    networks:
+      - proxy
+    depends_on:
+      - postgresql
+      - redis
+    command: server --worker
+
+networks:
+  proxy:
+    external: true

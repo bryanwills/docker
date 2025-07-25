@@ -1,23 +1,61 @@
 version: "3.3"
 
 services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: docmost-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: docmost
+      POSTGRES_USER: docmost
+      POSTGRES_PASSWORD: docmost123
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    networks:
+      - proxy
+
+  redis:
+    image: redis:7-alpine
+    container_name: docmost-redis
+    restart: unless-stopped
+    volumes:
+      - ./redis-data:/data
+    networks:
+      - proxy
+
   docmost:
     image: docmost/docmost:latest
     container_name: docmost
+    environment:
+      - DATABASE_URL=postgresql://docmost:docmost123@postgres:5432/docmost
+      - REDIS_URL=redis://redis:6379
+      - APP_SECRET=pOKYgrwOs1E9e/uhNyBDKEQ0pnXSYx9qP4evHKtmCIY=
+    depends_on:
+      - postgres
+      - redis
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.docmost.rule=Host(`docs.bryanwills.dev`)"
-      - "traefik.http.routers.docmost.entrypoints=websecure"
-      - "traefik.http.routers.docmost.tls.certresolver=letsencrypt"
-      # - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
-      # - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
-      #     - "traefik.http.routers.docmost.middlewares=docmost-https-redirect"
-      # - "traefik.http.routers.docmost-secure.entrypoints=https"
-      # - "traefik.http.routers.docmost-secure.rule=Host(`docs.bryanwills.dev`)"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.middlewares.docmost-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.docmost-http.entrypoints=web"
+      - "traefik.http.routers.docmost-http.middlewares=docmost-https-redirect"
+      - "traefik.http.routers.docmost-http.rule=Host(`docs.bryanwills.dev`)"
+      - "traefik.http.routers.docmost-secure.entrypoints=websecure"
+      - "traefik.http.routers.docmost-secure.rule=Host(`docs.bryanwills.dev`)"
+      - "traefik.http.routers.docmost-secure.service=docmost"
+      - "traefik.http.routers.docmost-secure.tls=true"
+      - "traefik.http.routers.docmost-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.services.docmost.loadbalancer.server.port=3000"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "portainer_data:/data"
     restart: unless-stopped
+    networks:
+      - proxy
 
 volumes:
   portainer_data:
+
+networks:
+  proxy:
+    external: true

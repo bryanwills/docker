@@ -1,0 +1,69 @@
+version: "3.9"
+services:
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    restart: unless-stopped
+    environment:
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - HOSTNAME=9648204b1ac8
+      - INSTALL_WEB_SERVER=true
+      - DNSMASQ_LISTENING=all
+      - TZ=America/New_York
+      - VIRTUAL_HOST=dns.bryanwills.dev
+      - CACHE_SIZE=10000
+      - PROXY_LOCATION=pihole
+      - ServerIP=172.18.0.8
+      - LIGHTTPD_ENABLED=true
+      - DNSMASQ_OPTS=--log-queries --log-facility=/var/log/pihole.log
+      - DNSMASQ_USER=pihole
+      - INSTALL_WEB_INTERFACE=true
+      - PIHOLE_DNS_=8.8.8.8;8.8.4.4;1.1.1.1;1.0.0.1
+      - WEBPASSWORD=${WEBPASSWORD}
+      - QUERY_LOGGING=true
+      - FTL_CMD=no-daemon
+      - HOME=/root
+    volumes:
+      - /home/bryanwi09/docker/dns-adblock/etc-pihole:/etc/pihole
+      - /home/bryanwi09/docker/dns-adblock/etc-dnsmasq.d:/etc/dnsmasq.d
+      - /home/bryanwi09/docker/dns-adblock/var-log:/var/log
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    labels:
+      - "com.docker.compose.config-hash=e9c995513ca706e36b2b18af3c8770a97dfc82c2425ffe8d65470835eb6c1b76"
+      - "com.docker.compose.container-number=1"
+      - "com.docker.compose.depends_on="
+      - "com.docker.compose.image=sha256:acf4228d4c8a34bd7d3c136d668c36eb76ebf81835562db472fe2e6ec22336ac"
+      - "com.docker.compose.oneoff=False"
+      - "com.docker.compose.project=dns-adblock"
+      - "com.docker.compose.project.config_files=/home/bryanwi09/docker/dns-adblock/docker-compose.yml"
+      - "com.docker.compose.project.working_dir=/home/bryanwi09/docker/dns-adblock"
+      - "com.docker.compose.service=pihole"
+      - "com.docker.compose.version=2.35.1"
+      - "org.opencontainers.image.created=2025-07-14T21:58:57.014Z"
+      - "org.opencontainers.image.description=Pi-hole in a docker container"
+      - "org.opencontainers.image.licenses=NOASSERTION"
+      - "org.opencontainers.image.revision=b2064c8fb7def5483c395876ac56ad7ce6e087ba"
+      - "org.opencontainers.image.source=https://github.com/pi-hole/docker-pi-hole"
+      - "org.opencontainers.image.title=docker-pi-hole"
+      - "org.opencontainers.image.url=https://github.com/pi-hole/docker-pi-hole"
+      - "org.opencontainers.image.version=2025.07.1"
+      - "traefik.docker.network=proxy"
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.pihole-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.pihole-secure.entrypoints=websecure"
+      - "traefik.http.routers.pihole-secure.rule=Host(`dns.bryanwills.dev`)"
+      - "traefik.http.routers.pihole-secure.service=pihole"
+      - "traefik.http.routers.pihole-secure.tls=true"
+      - "traefik.http.routers.pihole-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.pihole-http.entrypoints=web"
+      - "traefik.http.routers.pihole-http.middlewares=pihole-https-redirect"
+      - "traefik.http.routers.pihole-http.rule=Host(`dns.bryanwills.dev`)"
+      - "traefik.http.services.pihole.loadbalancer.server.port=80"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

@@ -1,0 +1,7 @@
+id: echo-single-quotes
+description: Replace echo "..." with echo '...'
+language: shellscript
+trigger: onsave
+matches:
+  - pattern: 'echo\s+"([^"]*)"'
+    replacement: "echo '$1'"

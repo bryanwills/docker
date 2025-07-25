@@ -1,0 +1,55 @@
+options {
+	directory "/var/cache/bind";
+
+	// If there is a firewall between you and nameservers you want
+	// to talk to, you may need to fix the source port below.
+	// If using a firewall, you may need to uncomment the following line
+	// and set the correct source port.
+	// query-source port 53;
+
+	// If your ISP provided one or more IP addresses for stable
+	// nameservers, you probably want to use them as forwarders.
+	// Uncomment the following block, and insert the addresses replacing
+	// the all-0's placeholder.
+
+	// forwarders {
+	// 	0.0.0.0;
+	// };
+
+	//========================================================================
+	// BIND 9 now logs by default through the syslog (except debug output).
+	// To disable logging through syslog, uncomment the following option.
+	// Note: the default for the directory option is /var/cache/bind
+	//
+	// Because none of our rndc built-in commands actually log to the
+	// default_log_file (see https://www.isc.org/bugs/bindbugs/1643), we
+	// can only really disable named logging via syslog if we disable
+	// rndc logging via syslog.  However, the log-file option is
+	// deprecated since the only way to disable logging is via the
+	// logging statement, so we can't tell file-not-found anymore.
+	//
+	// So we will continue to log to syslog by default.
+	//
+	// (This means that setting log-file does nothing; you have to either
+	// disable logging entirely, or set the log-file option and then
+	// configure logging separately in named.conf.local)
+	//
+	// log-file "syslog";
+	//
+	//========================================================================
+
+	// If you're running only a caching nameserver locally, you do not
+	// need to listen on any interfaces, but if you're responding to
+	// queries from other machines, you should listen on all interfaces.
+	// If you're using BIND 9.4+ and you're listening on localhost,
+	// you may need to add 'query-source address 127.0.0.1;' if you're
+	// having trouble receiving responses from 127.0.0.1
+	listen-on-v6 { any; };
+
+	// Enable recursion
+	recursion yes;
+	allow-recursion { any; };
+
+	// Enable query logging
+	querylog yes;
+};

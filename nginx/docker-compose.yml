@@ -1,0 +1,48 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: unless-stopped
+    volumes:
+      - ./sites:/etc/nginx/sites-available
+      - ./logs:/var/log/nginx
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - /var/www/bigbraincoding.com/html:/var/www/bigbraincoding.com/html
+      - /var/www/bryanwills.dev:/var/www/bryanwills.dev
+    networks:
+      - proxy
+    depends_on:
+      - php-fpm
+    labels:
+      - "traefik.enable=true"
+      # HTTP redirects for all domains
+      - "traefik.http.routers.nginx-http.entrypoints=web"
+      - "traefik.http.routers.nginx-http.rule=Host(`bryanwills.dev`) || Host(`www.bryanwills.dev`) || Host(`bigbraincoding.com`) || Host(`www.bigbraincoding.com`)"
+      - "traefik.http.middlewares.nginx-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.nginx-http.middlewares=nginx-https-redirect"
+      # HTTPS secure routes for all domains
+      - "traefik.http.routers.nginx-secure.entrypoints=websecure"
+      - "traefik.http.routers.nginx-secure.rule=Host(`bryanwills.dev`) || Host(`www.bryanwills.dev`) || Host(`bigbraincoding.com`) || Host(`www.bigbraincoding.com`)"
+      - "traefik.http.routers.nginx-secure.tls=true"
+      - "traefik.http.routers.nginx-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.nginx-secure.service=nginx"
+      - "traefik.http.services.nginx.loadbalancer.server.port=80"
+      - "traefik.docker.network=proxy"
+
+  php-fpm:
+    image: php:8.4-fpm-alpine
+    container_name: php-fpm
+    restart: unless-stopped
+    volumes:
+      - /var/www/bigbraincoding.com/html:/var/www/bigbraincoding.com/html
+      - /home/bryanwi09/docker/php-fpm/php.ini:/usr/local/etc/php/conf.d/custom.ini
+      - /home/bryanwi09/docker/php-fpm/www.conf:/usr/local/etc/php-fpm.d/www.conf
+    networks:
+      - proxy
+    environment:
+      - PHP_FPM_USER=www-data
+      - PHP_FPM_GROUP=www-data
+
+networks:
+  proxy:
+    external: true

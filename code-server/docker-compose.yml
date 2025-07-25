@@ -1,0 +1,73 @@
+version: "3.9"
+services:
+  code-server:
+    image: lscr.io/linuxserver/code-server:latest
+    container_name: code-server
+    restart: unless-stopped
+    environment:
+      - PATH=/lsiopy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - HOSTNAME=77f0ea504c2d
+      - EXTENSIONS=ms-vscode.vscode-json-language-features,ms-vscode.vscode-typescript-language-features,ms-vscode.vscode-python,ms-vscode.vscode-git,ms-vscode.vscode-github,ms-vscode.vscode-github-pull-request-and-issue,ms-vscode.vscode-settings-sync,ms-vscode.vscode-extension-auto-update
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Louisville
+      - PASSWORD=38d62f9510dcb764634baa8d473cf523
+      - SUDO_PASSWORD=32473cb540569720e4babef80e704b0193087732b89855f68edc828097775576
+      - PROXY_DOMAIN=code.bryanwills.dev
+      - DEFAULT_WORKSPACE=/config/workspace
+      - HOME=/config
+      - LANGUAGE=en_US.UTF-8
+      - LANG=en_US.UTF-8
+      - TERM=xterm
+      - S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0
+      - S6_VERBOSITY=1
+      - S6_STAGE2_HOOK=/docker-mods
+      - VIRTUAL_ENV=/lsiopy
+      - LSIO_FIRST_PARTY=true
+    volumes:
+      - /home/bryanwi09/projects:/config/workspace/projects
+      - /var/www:/config/workspace/websites
+      - /home/bryanwi09/docker/code-server/config:/config
+    labels:
+      - "build_version=Linuxserver.io version:- 4.101.2-ls284 Build-date:- 2025-07-05T20:29:01+00:00"
+      - "com.docker.compose.config-hash=30e359c9b80019cc48c24c0dcd15c9d894c56d28bd9bb4ff6c20f60a37bf265f"
+      - "com.docker.compose.container-number=1"
+      - "com.docker.compose.depends_on="
+      - "com.docker.compose.image=sha256:a1b429cdd114b824a49967035a1fe359afa263b8edada91c3207b2e90fb31453"
+      - "com.docker.compose.oneoff=False"
+      - "com.docker.compose.project=code-server"
+      - "com.docker.compose.project.config_files=/home/bryanwi09/docker/code-server/docker-compose.yml"
+      - "com.docker.compose.project.working_dir=/home/bryanwi09/docker/code-server"
+      - "com.docker.compose.service=code-server"
+      - "com.docker.compose.version=2.35.1"
+      - "maintainer=aptalca"
+      - "org.opencontainers.image.authors=linuxserver.io"
+      - "org.opencontainers.image.created=2025-07-05T20:29:01+00:00"
+      - "org.opencontainers.image.description=[Code-server](https://coder.com) is VS Code running on a remote server, accessible through the browser.  - Code on your Chromebook, tablet, and laptop with a consistent dev environment.  - If you have a Windows or Mac workstation, more easily develop for Linux.  - Take advantage of large cloud servers to speed up tests, compilations, downloads, and more.  - Preserve battery life when you're on the go.  - All intensive computation runs on your server.  - You're no longer running excess instances of Chrome.  "
+      - "org.opencontainers.image.documentation=https://docs.linuxserver.io/images/docker-code-server"
+      - "org.opencontainers.image.licenses=GPL-3.0-only"
+      - "org.opencontainers.image.ref.name=b94352e411d5b8f9519d18c40341cc22be9e0d6b"
+      - "org.opencontainers.image.revision=b94352e411d5b8f9519d18c40341cc22be9e0d6b"
+      - "org.opencontainers.image.source=https://github.com/linuxserver/docker-code-server"
+      - "org.opencontainers.image.title=Code-server"
+      - "org.opencontainers.image.url=https://github.com/linuxserver/docker-code-server/packages"
+      - "org.opencontainers.image.vendor=linuxserver.io"
+      - "org.opencontainers.image.version=4.101.2-ls284"
+      - "traefik.docker.network=proxy"
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.code-server-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.code-server-secure.entrypoints=websecure"
+      - "traefik.http.routers.code-server-secure.rule=Host(`code.bryanwills.dev`)"
+      - "traefik.http.routers.code-server-secure.service=code-server"
+      - "traefik.http.routers.code-server-secure.tls=true"
+      - "traefik.http.routers.code-server-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.code-server-http.entrypoints=web"
+      - "traefik.http.routers.code-server-http.middlewares=code-server-https-redirect"
+      - "traefik.http.routers.code-server-http.rule=Host(`code.bryanwills.dev`)"
+      - "traefik.http.services.code-server.loadbalancer.server.port=8443"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

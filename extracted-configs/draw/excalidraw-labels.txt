@@ -1,0 +1,24 @@
+com.docker.compose.config-hash=05025d365ed11878db041e932bebf8a9abcf094af538f648c812023bf113f358
+com.docker.compose.container-number=1
+com.docker.compose.depends_on=
+com.docker.compose.image=sha256:0fbf16d26cc60d1c9f353a30d1f04d4dc97bc06083b47d3535b66330c41c41f8
+com.docker.compose.oneoff=False
+com.docker.compose.project=draw
+com.docker.compose.project.config_files=/home/bryanwi09/docker/draw/docker-compose.yml
+com.docker.compose.project.working_dir=/home/bryanwi09/docker/draw
+com.docker.compose.service=excalidraw
+com.docker.compose.version=2.35.1
+maintainer=NGINX Docker Maintainers <docker-maint@nginx.com>
+traefik.docker.network=proxy
+traefik.enable=true
+traefik.http.middlewares.excalidraw-https-redirect.redirectscheme.scheme=https
+traefik.http.routers.excalidraw-secure.entrypoints=https
+traefik.http.routers.excalidraw-secure.rule=Host(`draw.bryanwills.dev`)
+traefik.http.routers.excalidraw-secure.service=excalidraw
+traefik.http.routers.excalidraw-secure.tls=true
+traefik.http.routers.excalidraw-secure.tls.certresolver=letsencrypt
+traefik.http.routers.excalidraw.entrypoints=http
+traefik.http.routers.excalidraw.middlewares=excalidraw-https-redirect
+traefik.http.routers.excalidraw.rule=Host(`draw.bryanwills.dev`)
+traefik.http.services.excalidraw.loadbalancer.server.port=80
+

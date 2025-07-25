@@ -1,0 +1,305 @@
+[
+    {
+        "Id": "e6229dd89ef70589cffb5ba3258beb627da6dbc73b1a9ec938edb6fd63bd4ac4",
+        "Created": "2025-07-08T22:34:53.238661217Z",
+        "Path": "/usr/bin/dumb-init",
+        "Args": [
+            "--",
+            "extra/entrypoint.sh",
+            "node",
+            "server/server.js"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 86417,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2025-07-08T22:34:53.75119934Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+                "Status": "healthy",
+                "FailingStreak": 0,
+                "Log": [
+                    {
+                        "Start": "2025-07-22T13:02:05.446493793-04:00",
+                        "End": "2025-07-22T13:02:05.545012099-04:00",
+                        "ExitCode": 0,
+                        "Output": "2025/07/22 17:02:05 Checking http://127.0.0.1:3001\n2025/07/22 17:02:05 Health Check OK [Res Code: 200]\n"
+                    },
+                    {
+                        "Start": "2025-07-22T13:03:05.546112886-04:00",
+                        "End": "2025-07-22T13:03:05.645738759-04:00",
+                        "ExitCode": 0,
+                        "Output": "2025/07/22 17:03:05 Checking http://127.0.0.1:3001\n2025/07/22 17:03:05 Health Check OK [Res Code: 200]\n"
+                    },
+                    {
+                        "Start": "2025-07-22T13:04:05.647053605-04:00",
+                        "End": "2025-07-22T13:04:05.770974837-04:00",
+                        "ExitCode": 0,
+                        "Output": "2025/07/22 17:04:05 Checking http://127.0.0.1:3001\n2025/07/22 17:04:05 Health Check OK [Res Code: 200]\n"
+                    },
+                    {
+                        "Start": "2025-07-22T13:05:05.772095496-04:00",
+                        "End": "2025-07-22T13:05:05.856572216-04:00",
+                        "ExitCode": 0,
+                        "Output": "2025/07/22 17:05:05 Checking http://127.0.0.1:3001\n2025/07/22 17:05:05 Health Check OK [Res Code: 200]\n"
+                    },
+                    {
+                        "Start": "2025-07-22T13:06:05.858416066-04:00",
+                        "End": "2025-07-22T13:06:05.938136597-04:00",
+                        "ExitCode": 0,
+                        "Output": "2025/07/22 17:06:05 Checking http://127.0.0.1:3001\n2025/07/22 17:06:05 Health Check OK [Res Code: 200]\n"
+                    }
+                ]
+            }
+        },
+        "Image": "sha256:542ef8cfcae209bef49dfe85d9e8aa92fbbd5fc83187fe6b695f08a661c691be",
+        "ResolvConfPath": "/var/lib/docker/containers/e6229dd89ef70589cffb5ba3258beb627da6dbc73b1a9ec938edb6fd63bd4ac4/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/e6229dd89ef70589cffb5ba3258beb627da6dbc73b1a9ec938edb6fd63bd4ac4/hostname",
+        "HostsPath": "/var/lib/docker/containers/e6229dd89ef70589cffb5ba3258beb627da6dbc73b1a9ec938edb6fd63bd4ac4/hosts",
+        "LogPath": "/var/lib/docker/containers/e6229dd89ef70589cffb5ba3258beb627da6dbc73b1a9ec938edb6fd63bd4ac4/e6229dd89ef70589cffb5ba3258beb627da6dbc73b1a9ec938edb6fd63bd4ac4-json.log",
+        "Name": "/uptime-kuma",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/home/bryanwi09/docker/uptime-kuma/data:/app/data:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "proxy",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "ID": "e6229dd89ef70589cffb5ba3258beb627da6dbc73b1a9ec938edb6fd63bd4ac4",
+                "LowerDir": "/var/lib/docker/overlay2/1cff1ac8730534683a989314cfbc81917c5c6ca457a5fcd20d27c21e602a4d02-init/diff:/var/lib/docker/overlay2/efafde906b1dd0500bb194f555cce25c1bff6ce35872c2aed3b818283041ec94/diff:/var/lib/docker/overlay2/75f269771587ece394dabda0a2c62a89f7e534655e27d5e00894e9f5aa220884/diff:/var/lib/docker/overlay2/800b97a1cbc58ddb158bbdf041429fc78d2aceb47d2e9299c485e7b000b470f5/diff:/var/lib/docker/overlay2/db7fd4d3949a168c37bbcfda5dff89089a962df5857bc7204a19fbec539a8f47/diff:/var/lib/docker/overlay2/8f092eec27861b19cb588bb9cfb0e4fe06b3865b0292d174567af50e13a47aea/diff:/var/lib/docker/overlay2/7303eadccc7d05d128e1deb850f94a254dd39056e84db433dfedb30f205eb0fa/diff:/var/lib/docker/overlay2/a00008af0f1ce26f28070ada6d15a98cb47583ec01bfb6779520ca2198599a91/diff:/var/lib/docker/overlay2/0d96b3daa10f0319d90ae9f264d3558443879210b3f60aa549a124e04551b690/diff:/var/lib/docker/overlay2/a99c99faed76547c7402dd6e2e1ff231191f96ed00d52ed1263ded09d402def9/diff:/var/lib/docker/overlay2/fa449c8d09adf770583ec2247a7a1d75fa6cd8254be41a5df84b2dedb6716623/diff:/var/lib/docker/overlay2/14727282887c0c28346dc27b901b711d0fbec6847c33a30df912843cdfdeac24/diff:/var/lib/docker/overlay2/e9ad8ef6639c7ec8d84408e620b8185fe407e1eb492d6db9222e7a3ae8eba68c/diff",
+                "MergedDir": "/var/lib/docker/overlay2/1cff1ac8730534683a989314cfbc81917c5c6ca457a5fcd20d27c21e602a4d02/merged",
+                "UpperDir": "/var/lib/docker/overlay2/1cff1ac8730534683a989314cfbc81917c5c6ca457a5fcd20d27c21e602a4d02/diff",
+                "WorkDir": "/var/lib/docker/overlay2/1cff1ac8730534683a989314cfbc81917c5c6ca457a5fcd20d27c21e602a4d02/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/bryanwi09/docker/uptime-kuma/data",
+                "Destination": "/app/data",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "e6229dd89ef7",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "3001/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NODE_VERSION=18.20.3",
+                "YARN_VERSION=1.22.19",
+                "UPTIME_KUMA_IS_CONTAINER=1"
+            ],
+            "Cmd": [
+                "node",
+                "server/server.js"
+            ],
+            "Healthcheck": {
+                "Test": [
+                    "CMD-SHELL",
+                    "extra/healthcheck"
+                ],
+                "Interval": 60000000000,
+                "Timeout": 30000000000,
+                "StartPeriod": 180000000000,
+                "Retries": 5
+            },
+            "Image": "louislam/uptime-kuma:1",
+            "Volumes": {
+                "/app/data": {}
+            },
+            "WorkingDir": "/app",
+            "Entrypoint": [
+                "/usr/bin/dumb-init",
+                "--",
+                "extra/entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "22a4226db7a5e5482c65a647e2552b46edfea8b493424b5f2a030727bbfd4654",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:542ef8cfcae209bef49dfe85d9e8aa92fbbd5fc83187fe6b695f08a661c691be",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "uptime-kuma",
+                "com.docker.compose.project.config_files": "/home/bryanwi09/docker/uptime-kuma/docker-compose.yml",
+                "com.docker.compose.project.working_dir": "/home/bryanwi09/docker/uptime-kuma",
+                "com.docker.compose.service": "uptime-kuma",
+                "com.docker.compose.version": "2.35.1",
+                "traefik.docker.network": "proxy",
+                "traefik.enable": "true",
+                "traefik.http.middlewares.uptime-https-redirect.redirectscheme.scheme": "https",
+                "traefik.http.routers.uptime-secure.entrypoints": "https",
+                "traefik.http.routers.uptime-secure.rule": "Host(`status.bryanwills.dev`)",
+                "traefik.http.routers.uptime-secure.service": "uptime",
+                "traefik.http.routers.uptime-secure.tls": "true",
+                "traefik.http.routers.uptime-secure.tls.certresolver": "letsencrypt",
+                "traefik.http.routers.uptime.entrypoints": "http",
+                "traefik.http.routers.uptime.middlewares": "uptime-https-redirect",
+                "traefik.http.routers.uptime.rule": "Host(`status.bryanwills.dev`)",
+                "traefik.http.services.uptime.loadbalancer.server.port": "3001"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "e56cb08f62f1d8dd3065ea3f9c4128a61ae76ec7835538485b7e343c3c5e96df",
+            "SandboxKey": "/var/run/docker/netns/e56cb08f62f1",
+            "Ports": {
+                "3001/tcp": null
+            },
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "proxy": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "uptime-kuma",
+                        "uptime-kuma"
+                    ],
+                    "MacAddress": "4e:82:7b:6d:47:eb",
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "4c46364ee600de1ac850ce68c1b2c05b63ac5bd0bd9588877150f55e4296dc64",
+                    "EndpointID": "2291ca0fad4098d9433869aa349c1483443de6a2f6da924c91aa5904bbfe6593",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.13",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "uptime-kuma",
+                        "e6229dd89ef7"
+                    ]
+                }
+            }
+        }
+    }
+]

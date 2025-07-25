@@ -1,0 +1,307 @@
+[
+    {
+        "Id": "d72fe6f8eaa72dd32a37863526c9c3b8b93c6a994f75bae5e723cf0afd469b3d",
+        "Created": "2025-07-08T21:16:24.467386844Z",
+        "Path": "tini",
+        "Args": [
+            "--",
+            "/docker-entrypoint.sh"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 53158,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2025-07-08T21:16:55.330106377Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:ce772838f65e4dc18279b149457dada3bf3a065880599fe06d72487b8d975b45",
+        "ResolvConfPath": "/var/lib/docker/containers/d72fe6f8eaa72dd32a37863526c9c3b8b93c6a994f75bae5e723cf0afd469b3d/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/d72fe6f8eaa72dd32a37863526c9c3b8b93c6a994f75bae5e723cf0afd469b3d/hostname",
+        "HostsPath": "/var/lib/docker/containers/d72fe6f8eaa72dd32a37863526c9c3b8b93c6a994f75bae5e723cf0afd469b3d/hosts",
+        "LogPath": "/var/lib/docker/containers/d72fe6f8eaa72dd32a37863526c9c3b8b93c6a994f75bae5e723cf0afd469b3d/d72fe6f8eaa72dd32a37863526c9c3b8b93c6a994f75bae5e723cf0afd469b3d-json.log",
+        "Name": "/n8n",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/home/bryanwi09/docker/n8n/data:/home/node/.n8n:rw",
+                "/home/bryanwi09/docker/n8n/files:/files:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "n8n_n8n",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "ID": "d72fe6f8eaa72dd32a37863526c9c3b8b93c6a994f75bae5e723cf0afd469b3d",
+                "LowerDir": "/var/lib/docker/overlay2/0d21295b170b9942813aae0a675c0578c06447278ea2a6312152e1cfe913bf4f-init/diff:/var/lib/docker/overlay2/9e57757cb81facf5bf514ba03411957ea503c3374a77bdf3aea97e78859761d0/diff:/var/lib/docker/overlay2/5b4ffcc290d081455c9f4bedab5d0845670dac9be466b82fcfdaf00aa2fbdac0/diff:/var/lib/docker/overlay2/a68da8b37c528f15930cd5ac60a9bb90ef46ea6e37a6b07819e15acfbca53d09/diff:/var/lib/docker/overlay2/2e483f1c611dbb1a26306eb6638ddb023d6c0e73a3cbe3910b0812e62cbb00f4/diff:/var/lib/docker/overlay2/16ab60e3df0f8c677340290fdebaceb46054a12bfde208fe3be33b85fec2b9b1/diff:/var/lib/docker/overlay2/b1c49e8b8bd60a30328e11f6d8aec88408827a42213e8737c8ff10c146596c60/diff:/var/lib/docker/overlay2/075753002ec6fd9b78506e3dedcd86e68303b72a0be21c8ee1d6e99129d07996/diff:/var/lib/docker/overlay2/7c643539711838c4f0ad1551b492cca255158aa34b94b0e5ca207a792df062b0/diff:/var/lib/docker/overlay2/d334c047d9abd920e066e2d3fc03bca11e9b294e68349ba13989820358530f31/diff:/var/lib/docker/overlay2/571ff47701f8767013f9641c299b64495466f1d45b19b34c91242ffb25ce1f4a/diff:/var/lib/docker/overlay2/ca8b61f2c8fb3ad27d55603b40d72ea64e65bebdcae560d604ae4cbe3cf72fb3/diff:/var/lib/docker/overlay2/4a7d2f6788a9fb52a8aa86fab9eca033c84e9798e57a5df15af8bc40353b19c4/diff:/var/lib/docker/overlay2/02d43ac4b3bed6c51ded07c23f9cdeb852e5d7a72b10a2fb3f26d13a81a323c7/diff:/var/lib/docker/overlay2/6653a5cbc3e7a9c3f5bb16e9d271e1dcafa515644af5f78b60c1a4135f3b7ccd/diff",
+                "MergedDir": "/var/lib/docker/overlay2/0d21295b170b9942813aae0a675c0578c06447278ea2a6312152e1cfe913bf4f/merged",
+                "UpperDir": "/var/lib/docker/overlay2/0d21295b170b9942813aae0a675c0578c06447278ea2a6312152e1cfe913bf4f/diff",
+                "WorkDir": "/var/lib/docker/overlay2/0d21295b170b9942813aae0a675c0578c06447278ea2a6312152e1cfe913bf4f/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/bryanwi09/docker/n8n/files",
+                "Destination": "/files",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/bryanwi09/docker/n8n/data",
+                "Destination": "/home/node/.n8n",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "d72fe6f8eaa7",
+            "Domainname": "",
+            "User": "1000:1000",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "5678/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "DB_POSTGRESDB_PASSWORD=6z2hKncc75vqbtknR96WDkd/PkXNi9eIfxpr3DmXdb8=",
+                "DB_POSTGRESDB_DATABASE=n8n",
+                "N8N_BASIC_AUTH_USER=admin",
+                "WEBHOOK_URL=https://n8n.bryanwills.dev/",
+                "N8N_BASIC_AUTH_ACTIVE=true",
+                "N8N_PROTOCOL=https",
+                "N8N_USER_FOLDER=/home/node/.n8n",
+                "N8N_BASIC_AUTH_PASSWORD=yOp8EN8djxf1V37SE1+lJQ==",
+                "DB_POSTGRESDB_USER=n8n",
+                "NODE_ENV=production",
+                "GENERIC_TIMEZONE=America/Louisville",
+                "DB_TYPE=postgresdb",
+                "N8N_HOST=n8n.bryanwills.dev",
+                "DB_POSTGRESDB_PORT=5432",
+                "N8N_PORT=5678",
+                "DB_POSTGRESDB_HOST=postgres",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NODE_VERSION=22.17.0",
+                "YARN_VERSION=1.22.22",
+                "NODE_ICU_DATA=/usr/local/lib/node_modules/full-icu",
+                "N8N_RELEASE_TYPE=stable",
+                "SHELL=/bin/sh"
+            ],
+            "Cmd": null,
+            "Image": "n8nio/n8n:latest",
+            "Volumes": null,
+            "WorkingDir": "/home/node",
+            "Entrypoint": [
+                "tini",
+                "--",
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "1838be527a395f8a74461f15dd14aee6557f58b5bb1028e558ddfd059c48f89f",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "postgres:service_healthy:false",
+                "com.docker.compose.image": "sha256:ce772838f65e4dc18279b149457dada3bf3a065880599fe06d72487b8d975b45",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "n8n",
+                "com.docker.compose.project.config_files": "/home/bryanwi09/docker/n8n/docker-compose.yml",
+                "com.docker.compose.project.working_dir": "/home/bryanwi09/docker/n8n",
+                "com.docker.compose.service": "n8n",
+                "com.docker.compose.version": "2.35.1",
+                "org.opencontainers.image.description": "Workflow Automation Tool",
+                "org.opencontainers.image.source": "https://github.com/n8n-io/n8n",
+                "org.opencontainers.image.title": "n8n",
+                "org.opencontainers.image.url": "https://n8n.io",
+                "org.opencontainers.image.version": "latest",
+                "traefik.docker.network": "proxy",
+                "traefik.enable": "true",
+                "traefik.http.middlewares.n8n-https-redirect.redirectscheme.scheme": "https",
+                "traefik.http.routers.n8n-secure.entrypoints": "https",
+                "traefik.http.routers.n8n-secure.rule": "Host(`n8n.bryanwills.dev`)",
+                "traefik.http.routers.n8n-secure.service": "n8n",
+                "traefik.http.routers.n8n-secure.tls": "true",
+                "traefik.http.routers.n8n-secure.tls.certresolver": "letsencrypt",
+                "traefik.http.routers.n8n.entrypoints": "http",
+                "traefik.http.routers.n8n.middlewares": "n8n-https-redirect",
+                "traefik.http.routers.n8n.rule": "Host(`n8n.bryanwills.dev`)",
+                "traefik.http.services.n8n.loadbalancer.server.port": "5678"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "f7fc24d275fc13095f5cd641a24f6fd87d56d72c0556185be6a16f161f145f9b",
+            "SandboxKey": "/var/run/docker/netns/f7fc24d275fc",
+            "Ports": {
+                "5678/tcp": null
+            },
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "n8n_n8n": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "n8n",
+                        "n8n"
+                    ],
+                    "MacAddress": "d2:32:01:03:36:d0",
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "9ec65947358a1cc35449b866195f2bffe1e66fe942547f66cc09a908132d1c44",
+                    "EndpointID": "40abe8b0b60d0a1669c8cef7bd026bbe4a6d754cea8f7c9ca00f8de504a963dc",
+                    "Gateway": "172.20.0.1",
+                    "IPAddress": "172.20.0.3",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "n8n",
+                        "d72fe6f8eaa7"
+                    ]
+                },
+                "proxy": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "n8n",
+                        "n8n"
+                    ],
+                    "MacAddress": "c2:9d:7a:aa:aa:94",
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "4c46364ee600de1ac850ce68c1b2c05b63ac5bd0bd9588877150f55e4296dc64",
+                    "EndpointID": "de6dd4270ec551afcf4c105130179cc4c05bb1e67230aa73988c506dfb7e2a63",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.3",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "n8n",
+                        "d72fe6f8eaa7"
+                    ]
+                }
+            }
+        }
+    }
+]

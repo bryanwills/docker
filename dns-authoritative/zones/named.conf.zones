@@ -1,0 +1,17 @@
+// Zone definitions for authoritative DNS server
+
+// Example zone for bryanwills.dev
+zone "bryanwills.dev" {
+    type master;
+    file "/etc/bind/zones/bryanwills.dev.zone";
+    allow-transfer { any; };
+    allow-query { any; };
+};
+
+// Example zone for bigbraincoding.com
+zone "bigbraincoding.com" {
+    type master;
+    file "/etc/bind/zones/bigbraincoding.com.zone";
+    allow-transfer { any; };
+    allow-query { any; };
+};

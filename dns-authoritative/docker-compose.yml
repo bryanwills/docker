@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  bind9:
+    image: ubuntu/bind9:latest
+    container_name: dns-authoritative
+    restart: unless-stopped
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "953:953/tcp"  # rndc control port
+    volumes:
+      - ./zones:/etc/bind/zones
+      - ./logs:/var/log
+      - ./config:/etc/bind
+    environment:
+      - TZ=UTC
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.middlewares.dns-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.dns-http.entrypoints=web"
+      - "traefik.http.routers.dns-http.middlewares=dns-https-redirect"
+      - "traefik.http.routers.dns-http.rule=Host(`dns-auth.bryanwills.dev`)"
+      - "traefik.http.routers.dns-secure.entrypoints=websecure"
+      - "traefik.http.routers.dns-secure.rule=Host(`dns-auth.bryanwills.dev`)"
+      - "traefik.http.routers.dns-secure.service=dns-authoritative"
+      - "traefik.http.routers.dns-secure.tls=true"
+      - "traefik.http.routers.dns-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.services.dns-authoritative.loadbalancer.server.port=80"
+
+networks:
+  proxy:
+    external: true
