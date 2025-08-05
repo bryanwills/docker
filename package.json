@@ -9,5 +9,8 @@
   },
   "scripts": {
     "commit": "cz"
+  },
+  "dependencies": {
+    "@radix-ui/react-select": "^2.2.5"
   }
 }

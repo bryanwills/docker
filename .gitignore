@@ -2,6 +2,8 @@
 **/.env
 **/*.env
 **/*.env.*
+../../../.conf*
+**/.conf*
 
 # Ignore system files
 .DS_Store
@@ -67,3 +69,8 @@ node_modules/
 # Ignore DB files
 db.*
 *.sqlite*
+../db.*
+../*.sqlite*
+../../db.*
+../../*.sqlite*
+../vaultwarden/db.sqlite3

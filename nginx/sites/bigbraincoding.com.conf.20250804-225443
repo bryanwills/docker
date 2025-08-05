@@ -38,7 +38,7 @@ server {
 
     # Main location block - proxy to Node.js application
     location / {
-        proxy_pass http://38.45.65.66:4000;
+        proxy_pass http://38.45.65.66:3000;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -52,7 +52,7 @@ server {
 
     # API endpoints - proxy to Node.js application
     location /api/ {
-        proxy_pass http://38.45.65.66:4000;
+        proxy_pass http://38.45.65.66:3000;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
