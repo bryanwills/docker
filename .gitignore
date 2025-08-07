@@ -5,6 +5,13 @@
 ../../../.conf*
 **/.conf*
 
+# Ignore entire Matomo directory and all contents
+matomo/
+matomo/**/*
+matomo/html/
+matomo/html/**/*
+matomo/html/vendor/
+matomo/html/vendor/**/*
 # Ignore system files
 .DS_Store
 Thumbs.db
