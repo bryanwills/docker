@@ -28,7 +28,7 @@ This repository contains all Docker Compose configurations for the bryanwills.de
 - **Vaultwarden** (`vaultwarden/`) - Password manager
 - **Homepage** (`Homepage/`) - Dashboard for all services
 - **IT Tools** (`IT-Tools/`) - IT utilities collection
-- **Docmost** (`docmost/`) - Documentation platform
+- **Affine** (`affine/`) - Self-hosted knowledge management with PostgreSQL storage
 - **Nginx** (`nginx/`) - Web server
 
 ## 🔧 Quick Start
@@ -80,6 +80,7 @@ All services are configured with the following domain pattern:
 - `n8n.bryanwills.dev` - n8n
 - `link.bryanwills.dev` - Linkwarden
 - `uptime.bryanwills.dev` - Uptime Kuma
+- `docs.bryanwills.dev` - Affine Knowledge Management
 - `traefik.bryanwills.dev` - Traefik Dashboard
 
 ## 🔐 Security
@@ -94,8 +95,17 @@ All services are configured with the following domain pattern:
 - **Traefik Dashboard**: `https://traefik.bryanwills.dev`
 - **Pi-hole Admin**: `https://dns.bryanwills.dev/admin`
 - **Uptime Kuma**: `https://uptime.bryanwills.dev`
+- **Affine Admin**: `https://docs.bryanwills.dev/admin`
 
 ## 🛠️ Maintenance
+
+### Database Backups
+```bash
+# Affine database is automatically backed up daily at midnight
+# Backups are stored in: ~/.affine/self-host/backups/
+# Manual backup: cd affine && ./backup_affine.sh
+# Restore backup: gunzip -c backups/affine_backup_YYYYMMDD_HHMMSS.sql.gz | docker exec -i affine_postgres psql -U affine -d affine
+```
 
 ### DNS Management
 ```bash
@@ -135,7 +145,7 @@ docker/
 ├── vaultwarden/       # Password manager
 ├── Homepage/          # Dashboard
 ├── IT-Tools/          # IT utilities
-├── docmost/           # Documentation
+├── affine/            # Knowledge management
 ├── nginx/             # Web server
 ├── syslog-server/     # Centralized logging
 └── Grafana-Monitoring/ # Metrics visualization
@@ -150,6 +160,9 @@ Each service directory contains a `.env` file with service-specific variables. K
 - `KEYCLOAK_ADMIN_PASSWORD` - Keycloak admin password
 - `CODE_SERVER_PASSWORD` - Code Server password
 - `N8N_PASSWORD` - n8n admin password
+- `AFFINE_SERVER_STORAGE_TYPE` - Affine storage type (postgres)
+- `AFFINE_SERVER_STORAGE_POSTGRES_URL` - Affine database connection
+- `GITHUB_CLIENT_ID` & `GITHUB_SECRET_ID` - GitHub OAuth for Affine
 
 ## 📝 Notes
 
