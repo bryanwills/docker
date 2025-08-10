@@ -18,6 +18,7 @@ This repository contains all Docker Compose configurations for the bryanwills.de
 - **n8n** (`n8n/`) - Workflow automation platform
 - **Excalidraw** (`draw/`) - Collaborative drawing tool
 - **Linkwarden** (`linkwarden/`) - Bookmark and link management
+- **Tooljet** (`tooljet/`) - Low-code platform for building internal tools
 
 ### Monitoring & Observability
 - **Uptime Kuma** (`uptime-kuma/`) - Uptime monitoring
@@ -81,6 +82,7 @@ All services are configured with the following domain pattern:
 - `link.bryanwills.dev` - Linkwarden
 - `uptime.bryanwills.dev` - Uptime Kuma
 - `docs.bryanwills.dev` - Affine Knowledge Management
+- `tooljet.bryanwills.dev` - Tooljet Low-code Platform
 - `traefik.bryanwills.dev` - Traefik Dashboard
 
 ## 🔐 Security
@@ -146,6 +148,7 @@ docker/
 ├── Homepage/          # Dashboard
 ├── IT-Tools/          # IT utilities
 ├── affine/            # Knowledge management
+├── tooljet/           # Low-code platform
 ├── nginx/             # Web server
 ├── syslog-server/     # Centralized logging
 └── Grafana-Monitoring/ # Metrics visualization
@@ -163,6 +166,8 @@ Each service directory contains a `.env` file with service-specific variables. K
 - `AFFINE_SERVER_STORAGE_TYPE` - Affine storage type (postgres)
 - `AFFINE_SERVER_STORAGE_POSTGRES_URL` - Affine database connection
 - `GITHUB_CLIENT_ID` & `GITHUB_SECRET_ID` - GitHub OAuth for Affine
+- `PG_DB` & `TOOLJET_DB` - Tooljet database names (app database and internal database)
+- `PG_HOST` & `PG_USER` & `PG_PASS` - Tooljet database connection credentials
 
 ## 📝 Notes
 

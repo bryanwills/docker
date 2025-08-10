@@ -1,0 +1,131 @@
+name: Tooljet app
+
+services:
+  tooljet:
+    tty: true
+    stdin_open: true
+    container_name: tooljet_app
+    image: tooljet/tooljet:ee-lts-latest
+    platform: linux/amd64
+    restart: always
+    env_file: .env
+    deploy: # Please adjust the resource according to your usecase
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4GB
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SERVE_CLIENT: "true"
+      PORT: "80"
+      HOST: "0.0.0.0"
+      TOOLJET_DB: ${TOOLJET_DB}
+    command: npm run start:prod
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.tooljet.rule=Host(`tooljet.bryanwills.dev`)"
+      - "traefik.http.routers.tooljet.entrypoints=websecure"
+      - "traefik.http.routers.tooljet.tls.certresolver=letsencrypt"
+      - "traefik.http.services.tooljet.loadbalancer.server.port=80"
+      - "traefik.docker.network=proxy"
+    networks:
+      - proxy
+
+  postgres:
+    container_name: tooljet_postgres
+    hostname: postgresql
+    image: postgres:13
+    restart: always
+    deploy: # Please adjust the resource according to your usecase
+      resources:
+        limits:
+          cpus: '2'
+          memory: 3G
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    env_file: .env
+    environment:
+      - POSTGRES_USER=${PG_USER}
+      - POSTGRES_PASSWORD=${PG_PASS}
+      - POSTGRES_DB=${PG_DB}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${PG_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - proxy
+
+  tooljet-worker-1:
+    tty: true
+    stdin_open: true
+    platform: linux/amd64
+    container_name: tooljet_worker_1
+    image: tooljet/tooljet:ee-lts-latest
+    restart: always
+    env_file: .env
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+    environment:
+      WORKFLOW_WORKER: "true"
+      TEMPORAL_SERVER_ADDRESS: tooljet_temporal:7233
+      TEMPORAL_TASK_QUEUE_NAME_FOR_WORKFLOWS: tooljet-workflows
+      TOOLJET_WORKFLOWS_TEMPORAL_NAMESPACE: default
+    depends_on:
+      postgres:
+        condition: service_healthy
+      temporal:
+        condition: service_started
+    command: npm run worker:prod
+    networks:
+      - proxy
+
+  temporal-postgresql:
+    container_name: tooljet_temporal_postgres
+    environment:
+      POSTGRES_PASSWORD: temporal
+      POSTGRES_USER: temporal
+    image: postgres:13
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U temporal"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - proxy
+
+  temporal:
+    container_name: tooljet_temporal
+    platform: linux/amd64
+    depends_on:
+      temporal-postgresql:
+        condition: service_healthy
+    environment:
+      - DB=postgres12
+      - DB_PORT=5432
+      - POSTGRES_USER=temporal
+      - POSTGRES_PWD=temporal
+      - POSTGRES_SEEDS=tooljet_temporal_postgres
+    image: temporalio/auto-setup:1.25.1
+    networks:
+      - proxy
+
+volumes:
+  postgres:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ${PWD}/postgres_data
+  certs:
+  logs:
+  fallbackcerts:
+
+networks:
+  proxy:
+    external: true
