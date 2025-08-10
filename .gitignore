@@ -4,6 +4,7 @@
 **/*.env.*
 ../../../.conf*
 **/.conf*
+env.generated
 
 # Ignore entire Matomo directory and all contents
 matomo/
@@ -67,6 +68,12 @@ node_modules/
 # Ignore backup files
 *.bak
 *.backup
+docker_backups_*/
+**/docker_backups_*/
+extracted-configs/
+extracted-configs/**/*/
+extract-configs.sh
+
 
 # Ignore OS files
 .fuse_hidden*
