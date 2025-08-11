@@ -1,0 +1,72 @@
+networks:
+  hashicorp:
+    external: true # use your dedicated hashicorp network
+  proxy:
+    external: true # for traefik access
+  internal:
+    driver: bridge
+
+services:
+  vault-setup:
+    image: hashicorp/vault:1.20
+    container_name: vault-setup
+    depends_on:
+      - vault
+    env_file:
+      - .env
+    volumes:
+      - ./vault-data:/vault/file
+      - ./vault-setup.sh:/vault-setup.sh:ro
+    networks:
+      - hashicorp
+    command: ["sh", "/vault-setup.sh"]
+    restart: "no"
+
+  vault:
+    image: hashicorp/vault:1.20
+    container_name: vault
+    cap_add:
+      - IPC_LOCK
+    command: ["vault", "server", "-dev", "-dev-listen-address=0.0.0.0:8200"]
+    env_file:
+      - .env
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: ${VAULT_DEV_ROOT_TOKEN_ID}
+      VAULT_DEV_LISTEN_ADDRESS: ${VAULT_DEV_LISTEN_ADDRESS}
+      VAULT_ADDR: ${VAULT_ADDR}
+      GITHUB_OAUTH_CLIENT_ID: ${GITHUB_OAUTH_CLIENT_ID}
+      GITHUB_OAUTH_CLIENT_SECRET: ${GITHUB_OAUTH_CLIENT_SECRET}
+      GITHUB_USERNAME: ${GITHUB_USERNAME}
+    volumes:
+      - ./vault-data:/vault/file
+      - ./vault-config.hcl:/vault-config.hcl:ro
+      - ./entrypoint.sh:/entrypoint.sh:ro
+    networks:
+      - hashicorp
+      - proxy
+      - internal
+    labels:
+      - "traefik.enable=true"
+
+      # HTTP Router (redirects to HTTPS)
+      - "traefik.http.routers.vault-http.rule=Host(`keys.bryanwills.dev`)"
+      - "traefik.http.routers.vault-http.entrypoints=web"
+      - "traefik.http.routers.vault-http.middlewares=https-redirect@docker"
+      
+      # HTTPS Router  
+      - "traefik.http.routers.vault.rule=Host(`keys.bryanwills.dev`)"
+      - "traefik.http.routers.vault.entrypoints=websecure"
+      - "traefik.http.routers.vault.tls=true"
+      - "traefik.http.routers.vault.tls.certresolver=letsencrypt"
+
+      # Service (map to container port 8200)
+      - "traefik.http.services.vault.loadbalancer.server.port=8200"
+
+      # Optional hardening headers (middleware)
+      - "traefik.http.middlewares.sec-headers.headers.stsSeconds=31536000"
+      - "traefik.http.middlewares.sec-headers.headers.stsIncludeSubdomains=true"
+      - "traefik.http.middlewares.sec-headers.headers.stsPreload=true"
+      - "traefik.http.middlewares.sec-headers.headers.contentTypeNosniff=true"
+      - "traefik.http.middlewares.sec-headers.headers.referrerPolicy=no-referrer"
+      - "traefik.http.routers.vault.middlewares=sec-headers@docker"
+      - "traefik.docker.network=proxy"
