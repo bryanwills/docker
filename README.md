@@ -19,6 +19,7 @@ This repository contains all Docker Compose configurations for the bryanwills.de
 - **Excalidraw** (`draw/`) - Collaborative drawing tool
 - **Linkwarden** (`linkwarden/`) - Bookmark and link management
 - **Tooljet** (`tooljet/`) - Low-code platform for building internal tools
+- **Gist** (`gist/`) - Self-hosted code snippet and gist service
 
 ### Monitoring & Observability
 - **Uptime Kuma** (`uptime-kuma/`) - Uptime monitoring
@@ -83,6 +84,7 @@ All services are configured with the following domain pattern:
 - `uptime.bryanwills.dev` - Uptime Kuma
 - `docs.bryanwills.dev` - Affine Knowledge Management
 - `tooljet.bryanwills.dev` - Tooljet Low-code Platform
+- `gist.bryanwills.dev` - Gist Code Snippets
 - `traefik.bryanwills.dev` - Traefik Dashboard
 
 ## 🔐 Security
@@ -149,6 +151,7 @@ docker/
 ├── IT-Tools/          # IT utilities
 ├── affine/            # Knowledge management
 ├── tooljet/           # Low-code platform
+├── gist/              # Code snippets and gists
 ├── nginx/             # Web server
 ├── syslog-server/     # Centralized logging
 └── Grafana-Monitoring/ # Metrics visualization
@@ -168,6 +171,8 @@ Each service directory contains a `.env` file with service-specific variables. K
 - `GITHUB_CLIENT_ID` & `GITHUB_SECRET_ID` - GitHub OAuth for Affine
 - `PG_DB` & `TOOLJET_DB` - Tooljet database names (app database and internal database)
 - `PG_HOST` & `PG_USER` & `PG_PASS` - Tooljet database connection credentials
+- `GITHUB_CLIENT_ID` & `GITHUB_CLIENT_SECRET` - GitHub OAuth for Gist authentication
+- `SECRET_KEY` & `SESSION_SECRET` - Gist security keys
 
 ## 📝 Notes
 
