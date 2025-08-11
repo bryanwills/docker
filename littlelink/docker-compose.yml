@@ -1,0 +1,61 @@
+services:
+  littlelink-server:
+    image: ghcr.io/techno-tim/littlelink-server:latest
+    # dockerhub is also supported timothystewart6/littlelink-server
+    # image: timothystewart6/littlelink-server:latest
+    container_name: littlelink-server
+    environment:
+      - META_TITLE=Bryan Wills
+      - META_DESCRIPTION=Software Engineer | Homelab | 🇺🇸 | Full Nerd
+      - META_AUTHOR=Bryan Wills
+      - META_KEYWORDS=HomeLab, HTML, CSS, Engineering
+      - LANG=en
+      - META_INDEX_STATUS=all
+      - OG_SITE_NAME=Bryan Wills
+      - OG_TITLE=Bryan Wills
+      - OG_DESCRIPTION=The home of Bryan Wills
+      - OG_URL=https://bryanwills.dev
+      - OG_IMAGE=https://scontent-hou1-1.xx.fbcdn.net/v/t39.30808-1/375799643_10106611284949144_3521960801870265401_n.jpg
+      - OG_IMAGE_WIDTH=400
+      - OG_IMAGE_HEIGHT=400
+      - GA_TRACKING_ID=G-XXXXXXXXXX
+      - THEME=Dark
+      - FAVICON_URL=https://scontent-hou1-1.xx.fbcdn.net/v/t39.30808-1/375799643_10106611284949144_3521960801870265401_n.jpg
+      - FAVICON_URL_HEIGHT=40
+      - FAVICON_URL_WIDTH=40
+      - AVATAR_URL=https://scontent-hou1-1.xx.fbcdn.net/v/t39.30808-1/375799643_10106611284949144_3521960801870265401_n.jpg
+      - AVATAR_URL_HEIGHT=200
+      - AVATAR_URL_WIDTH=200
+      - AVATAR_2X_URL=https://scontent-hou1-1.xx.fbcdn.net/v/t39.30808-1/375799643_10106611284949144_3521960801870265401_n.jpg
+      - AVATAR_2X_URL_HEIGHT=400
+      - AVATAR_2X_URL_WIDTH=400
+      - AVATAR_ALT=Bryan Wills Profile Pic
+      - NAME=Bryan Wills
+      - BIO=Software Engineer | Homelab | 🇺🇸 | Full Nerd
+      # use ENV variable names for order, listed buttons will be boosted to the top
+      - BUTTON_ORDER=YOUTUBE,TWITCH,TWITTER,GITHUB,INSTAGRAM,LINKED_IN,DISCORD,FACEBOOK,TIKTOK,PATREON,GEAR,DOCUMENTATION
+      # you can render an unlimited amount of custom buttons by adding
+      # the CUSTOM_BUTTON_* variables and by using a comma as a separator.
+      # - CUSTOM_BUTTON_TEXT=Documentation,Recommended Gear
+      # - CUSTOM_BUTTON_URL=https://l.bryanwills.dev/docs,https://l.bryanwills.dev/gear
+      # - CUSTOM_BUTTON_COLOR=#000000,#000000
+      # - CUSTOM_BUTTON_TEXT_COLOR=#ffffff,#ffffff
+      # - CUSTOM_BUTTON_ALT_TEXT=Tech documentation site for my videos and more,Recommended Gear
+      # - CUSTOM_BUTTON_NAME=DOCUMENTATION,GEAR
+      # - CUSTOM_BUTTON_ICON=fas file-alt,fas fa-cog
+      - GITHUB=https://l.bryanwills.dev/github
+      - TWITTER=https://l.bryanwills.dev/twitter
+      - INSTAGRAM=https://l.bryanwills.dev/instagram
+      - LINKED_IN=https://l.bryanwills.dev/linkedin
+      - YOUTUBE=https://l.bryanwills.dev/subscribe
+      - TWITCH=https://l.bryanwills.dev/twitch
+      - DISCORD=https://l.bryanwills.dev/discord
+      - TIKTOK=https://l.bryanwills.dev/tiktok
+      - FACEBOOK=https://l.bryanwills.dev/facebook
+      # - PATREON=https://l.bryanwills.dev/patreon
+      - FOOTER=Bryan Wills © 2025
+    ports:
+      - 8080:3000
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
