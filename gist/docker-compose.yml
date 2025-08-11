@@ -1,0 +1,96 @@
+version: '3.8'
+
+services:
+  opengist:
+    image: ghcr.io/thomiceli/opengist:1.10
+    container_name: opengist
+    restart: unless-stopped
+    env_file:
+      - .env
+    # Remove ports since Traefik will handle routing
+    # ports:
+    #   - "6157:6157" # HTTP port
+    #   - "2222:2222" # SSH port, can be removed if you don't use SSH
+    volumes:
+      - "$HOME/.opengist:/opengist"
+      - "./config.yml:/config.yml"
+    environment:
+      # OpenGist Configuration
+      - OG_OPENGIST_HOME=/opengist
+      - OG_SERVER_HTTP_ADDR=0.0.0.0:6157
+      - OG_SERVER_SSH_ADDR=0.0.0.0:2222
+      - OG_SERVER_EXTERNAL_URL=https://gist.bryanwills.dev
+      - OG_SERVER_DOMAIN=gist.bryanwills.dev
+      - OG_SERVER_ROOT_URL=https://gist.bryanwills.dev
+
+      # Database Configuration
+      - OG_DATABASE_TYPE=sqlite3
+      - OG_DATABASE_PATH=/opengist/opengist.db
+
+      # Security Configuration
+      - OG_SECRET_KEY=${SECRET_KEY}
+      - OG_SESSION_SECRET=${SESSION_KEY}
+      - OG_COOKIE_SECURE=true
+      - OG_COOKIE_HTTPONLY=true
+
+      # Site Configuration
+      - OG_SITE_NAME=Gist
+      - OG_SITE_DESCRIPTION=Code snippets and gists
+      - OG_SITE_ADMIN_EMAIL=${ADMIN_EMAIL}
+      - OG_SITE_SHOW_FOOTER=true
+      - OG_SITE_SHOW_FOOTER_VERSION=true
+
+      # User Configuration
+      - OG_ENABLE_SIGNUP=true
+      - OG_ENABLE_OAUTH=true
+      - OG_OAUTH_ENABLED=true
+      - OG_DISABLE_SSH=false
+      - OG_DEFAULT_THEME=auto
+
+      # OAuth Configuration
+      - OG_GITHUB_CLIENT_KEY=${GITHUB_OAUTH_CLIENT_ID}
+      - OG_GITHUB_SECRET=${GITHUB_OAUTH_CLIENT_SECRET}
+
+      # SSH Configuration
+      - OG_SSH_ENABLED=true
+      - OG_SSH_PORT=2222
+      - OG_SSH_DOMAIN=gist.bryanwills.dev
+
+      # Logging Configuration
+      - OG_LOG_LEVEL=info
+      - OG_LOG_MODE=console
+
+      # Alternative environment variable names that OpenGist might expect
+      - OPENGIST_SERVER_EXTERNAL_URL=https://gist.bryanwills.dev
+      - OPENGIST_SERVER_DOMAIN=gist.bryanwills.dev
+      - OPENGIST_SITE_NAME=Gist
+      - OPENGIST_SITE_ADMIN_EMAIL=admin@bryanwills.dev
+      - OPENGIST_OAUTH_GITHUB_CLIENT_ID=${GITHUB_OAUTH_CLIENT_ID}
+      - OPENGIST_OAUTH_GITHUB_CLIENT_SECRET=${GITHUB_OAUTH_CLIENT_SECRET}
+
+      # Try the most common environment variable names
+      - EXTERNAL_URL=https://gist.bryanwills.dev
+      - DOMAIN=gist.bryanwills.dev
+      - SITE_NAME=Gist
+      - ADMIN_EMAIL=${ADMIN_EMAIL}
+      - GITHUB_CLIENT_ID=${GITHUB_OAUTH_CLIENT_ID}
+      - GITHUB_CLIENT_SECRET=${GITHUB_OAUTH_CLIENT_SECRET}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.gist.rule=Host(`gist.bryanwills.dev`)"
+      - "traefik.http.routers.gist.entrypoints=websecure"
+      - "traefik.http.routers.gist.tls.certresolver=letsencrypt"
+      - "traefik.http.services.gist.loadbalancer.server.port=6157"
+      - "traefik.docker.network=proxy"
+    networks:
+      - proxy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6157/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+networks:
+  proxy:
+    external: true
