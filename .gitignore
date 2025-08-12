@@ -13,9 +13,12 @@ matomo/html/
 matomo/html/**/*
 matomo/html/vendor/
 matomo/html/vendor/**/*
+
 # Ignore system files
 .DS_Store
 Thumbs.db
+
+.cache_ggshield
 
 # Ignore Docker-related files
 **/acme.json
