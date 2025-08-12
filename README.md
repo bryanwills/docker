@@ -1,4 +1,4 @@
-# Bryan Wills Docker Infrastructure
+# Bryan Wills Docker Infrastructure for bryanwills.dev
 
 This repository contains all Docker Compose configurations for the bryanwills.dev infrastructure.
 
@@ -8,6 +8,7 @@ This repository contains all Docker Compose configurations for the bryanwills.de
 - **Traefik** (`traefik/`) - Reverse proxy with SSL termination and automatic certificate management
 - **Keycloak** (`keycloak/`) - Identity and access management
 - **Authentik** (`authentik/`) - Alternative identity provider (backup)
+- **HashiCorp Vault** (`hashicorp/`) - Secrets management and encryption
 
 ### DNS & Networking
 - **Pi-hole** (`dns-adblock/`) - Ad-blocking DNS server with local zone management
@@ -19,6 +20,7 @@ This repository contains all Docker Compose configurations for the bryanwills.de
 - **Excalidraw** (`draw/`) - Collaborative drawing tool
 - **Linkwarden** (`linkwarden/`) - Bookmark and link management
 - **Tooljet** (`tooljet/`) - Low-code platform for building internal tools
+- **Gist** (`gist/`) - Self-hosted code snippet and gist service
 
 ### Monitoring & Observability
 - **Uptime Kuma** (`uptime-kuma/`) - Uptime monitoring
@@ -68,6 +70,11 @@ This repository contains all Docker Compose configurations for the bryanwills.de
    docker compose up -d
    cd ..
 
+   # Start secrets management
+   cd hashicorp
+   docker compose up -d
+   cd ..
+
    # Start other services as needed
    ```
 
@@ -83,6 +90,8 @@ All services are configured with the following domain pattern:
 - `uptime.bryanwills.dev` - Uptime Kuma
 - `docs.bryanwills.dev` - Affine Knowledge Management
 - `tooljet.bryanwills.dev` - Tooljet Low-code Platform
+- `gist.bryanwills.dev` - Gist Code Snippets
+- `keys.bryanwills.dev` - HashiCorp Vault Secrets Management
 - `traefik.bryanwills.dev` - Traefik Dashboard
 
 ## 🔐 Security
@@ -98,6 +107,7 @@ All services are configured with the following domain pattern:
 - **Pi-hole Admin**: `https://dns.bryanwills.dev/admin`
 - **Uptime Kuma**: `https://uptime.bryanwills.dev`
 - **Affine Admin**: `https://docs.bryanwills.dev/admin`
+- **Vault Dashboard**: `https://keys.bryanwills.dev`
 
 ## 🛠️ Maintenance
 
@@ -137,6 +147,7 @@ docker/
 ├── traefik/           # Reverse proxy
 ├── keycloak/          # Authentication
 ├── authentik/         # Alternative auth
+├── hashicorp/         # HashiCorp Vault secrets management
 ├── dns-adblock/       # Pi-hole DNS
 ├── dns-authoritative/ # BIND9 DNS
 ├── draw/              # Excalidraw
@@ -149,9 +160,31 @@ docker/
 ├── IT-Tools/          # IT utilities
 ├── affine/            # Knowledge management
 ├── tooljet/           # Low-code platform
+├── gist/              # Code snippets and gists
 ├── nginx/             # Web server
 ├── syslog-server/     # Centralized logging
 └── Grafana-Monitoring/ # Metrics visualization
+```
+
+## 🛠️ Maintenance
+
+### Database Backups
+```bash
+# Affine database is automatically backed up daily at midnight
+# Backups are stored in: ~/.affine/self-host/backups/
+# Manual backup: cd affine && ./backup_affine.sh
+# Restore backup: gunzip -c backups/affine_backup_YYYYMMDD_HHMMSS.sql.gz | docker exec -i affine_postgres psql -U affine -d affine
+```
+
+### DNS Management
+```bash
+# Whitelist a domain in Pi-hole
+cd dns-adblock
+./whitelist.sh example.com
+```
+
+### Service Updates
+```
 ```
 
 ## 🔄 Environment Variables
@@ -168,6 +201,10 @@ Each service directory contains a `.env` file with service-specific variables. K
 - `GITHUB_CLIENT_ID` & `GITHUB_SECRET_ID` - GitHub OAuth for Affine
 - `PG_DB` & `TOOLJET_DB` - Tooljet database names (app database and internal database)
 - `PG_HOST` & `PG_USER` & `PG_PASS` - Tooljet database connection credentials
+- `GITHUB_CLIENT_ID` & `GITHUB_CLIENT_SECRET` - GitHub OAuth for Gist authentication
+- `SECRET_KEY` & `SESSION_SECRET` - Gist security keys
+- `GITHUB_OAUTH_CLIENT_ID` & `GITHUB_OAUTH_CLIENT_SECRET` - GitHub OAuth for Vault authentication
+- `GITHUB_ORGANIZATION` & `GITHUB_USERNAME` - GitHub organization and username for Vault auth
 
 ## 📝 Notes
 
@@ -175,3 +212,4 @@ Each service directory contains a `.env` file with service-specific variables. K
 - DNS services expose port 53 for external access
 - Sensitive data is stored in `.env` files (not committed)
 - Docker volumes persist data across container restarts
+- Vault runs in production mode with GitHub OAuth authentication
