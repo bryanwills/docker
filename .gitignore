@@ -88,3 +88,12 @@ db.*
 ../../db.*
 ../../*.sqlite*
 ../vaultwarden/db.sqlite3
+
+# Ignore Vaultwarden icon cache
+**/vaultwarden/icon_cache/
+**/icon_cache/
+
+# Ignore Affine backup files
+**/affine/backups/
+**/backups/
+*.sql.gz
