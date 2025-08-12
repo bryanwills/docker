@@ -109,6 +109,37 @@ All services are configured with the following domain pattern:
 - **Affine Admin**: `https://docs.bryanwills.dev/admin`
 - **Vault Dashboard**: `https://keys.bryanwills.dev`
 
+## 🛠️ Maintenance
+
+### Database Backups
+```bash
+# Affine database is automatically backed up daily at midnight
+# Backups are stored in: ~/.affine/self-host/backups/
+# Manual backup: cd affine && ./backup_affine.sh
+# Restore backup: gunzip -c backups/affine_backup_YYYYMMDD_HHMMSS.sql.gz | docker exec -i affine_postgres psql -U affine -d affine
+```
+
+### DNS Management
+```bash
+# Whitelist a domain in Pi-hole
+cd dns-adblock
+./whitelist.sh example.com
+```
+
+### Service Updates
+```bash
+# Update a specific service
+cd <service-directory>
+docker compose pull
+docker compose up -d
+```
+
+### Logs
+```bash
+# View service logs
+docker compose logs -f <service-name>
+```
+
 ## 📁 Directory Structure
 
 ```
@@ -174,7 +205,6 @@ Each service directory contains a `.env` file with service-specific variables. K
 - `SECRET_KEY` & `SESSION_SECRET` - Gist security keys
 - `GITHUB_OAUTH_CLIENT_ID` & `GITHUB_OAUTH_CLIENT_SECRET` - GitHub OAuth for Vault authentication
 - `GITHUB_ORGANIZATION` & `GITHUB_USERNAME` - GitHub organization and username for Vault auth
-```
 
 ## 📝 Notes
 
