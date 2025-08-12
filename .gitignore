@@ -97,3 +97,9 @@ db.*
 **/affine/backups/
 **/backups/
 *.sql.gz
+
+# Ignore Docker data directories that cause permission issues
+**/tooljet/postgres_data/
+**/hashicorp/vault-data/
+**/vault-data/
+**/postgres_data/
