@@ -27,16 +27,15 @@ services:
     container_name: vault
     cap_add:
       - IPC_LOCK
-    command: ["vault", "server", "-dev", "-dev-listen-address=0.0.0.0:8200"]
+    command: ["vault", "server", "-config=/vault-config.hcl"]
     env_file:
       - .env
     environment:
-      VAULT_DEV_ROOT_TOKEN_ID: ${VAULT_DEV_ROOT_TOKEN_ID}
-      VAULT_DEV_LISTEN_ADDRESS: ${VAULT_DEV_LISTEN_ADDRESS}
       VAULT_ADDR: ${VAULT_ADDR}
       GITHUB_OAUTH_CLIENT_ID: ${GITHUB_OAUTH_CLIENT_ID}
       GITHUB_OAUTH_CLIENT_SECRET: ${GITHUB_OAUTH_CLIENT_SECRET}
       GITHUB_USERNAME: ${GITHUB_USERNAME}
+      GITHUB_ORGANIZATION: ${GITHUB_ORGANIZATION}
     volumes:
       - ./vault-data:/vault/file
       - ./vault-config.hcl:/vault-config.hcl:ro
@@ -52,8 +51,8 @@ services:
       - "traefik.http.routers.vault-http.rule=Host(`keys.bryanwills.dev`)"
       - "traefik.http.routers.vault-http.entrypoints=web"
       - "traefik.http.routers.vault-http.middlewares=https-redirect@docker"
-      
-      # HTTPS Router  
+
+      # HTTPS Router
       - "traefik.http.routers.vault.rule=Host(`keys.bryanwills.dev`)"
       - "traefik.http.routers.vault.entrypoints=websecure"
       - "traefik.http.routers.vault.tls=true"

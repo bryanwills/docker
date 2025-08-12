@@ -7,7 +7,7 @@ VAULT_PID=$!
 # Wait for Vault to be ready
 sleep 10
 
-export VAULT_ADDR="http://localhost:8200"
+export VAULT_ADDR="https://keys.bryanwills.dev"
 export VAULT_TOKEN="${VAULT_DEV_ROOT_TOKEN_ID}"
 
 # Initialize Vault if not already done

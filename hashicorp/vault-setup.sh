@@ -22,37 +22,50 @@ echo "Configuring Vault authentication methods..."
 
 # Enable multiple auth methods for flexibility
 vault auth enable github 2>/dev/null || echo "GitHub auth already enabled"
-vault auth enable userpass 2>/dev/null || echo "Userpass already enabled" 
+vault auth enable userpass 2>/dev/null || echo "Userpass already enabled"
 vault auth enable oidc 2>/dev/null || echo "OIDC already enabled"
 
-# Configure GitHub token-based auth (for Personal Access Tokens)
-# Now using your GitHub organization for proper configuration
+# Configure GitHub OAuth (proper OAuth flow, not PAT-based)
 vault write auth/github/config \
     organization="${GITHUB_ORGANIZATION}" \
-    base_url="https://api.github.com" 2>/dev/null || echo "GitHub config failed"
+    base_url="https://api.github.com" \
+    client_id="${GITHUB_OAUTH_CLIENT_ID}" \
+    client_secret="${GITHUB_OAUTH_CLIENT_SECRET}" 2>/dev/null || echo "GitHub OAuth config failed"
 
-vault write auth/github/map/users/${GITHUB_USERNAME} value=default 2>/dev/null || echo "GitHub user mapping failed"
+# Map GitHub users to policies
+vault write auth/github/map/users/${GITHUB_USERNAME} value=admin 2>/dev/null || echo "GitHub user mapping failed"
 
-# Configure GitHub OAuth via OIDC (for proper OAuth flow)
-vault write auth/oidc/config \
-    oidc_discovery_url="https://github.com/.well-known/openid_configuration" \
-    oidc_client_id="${GITHUB_OAUTH_CLIENT_ID}" \
-    oidc_client_secret="${GITHUB_OAUTH_CLIENT_SECRET}" \
-    default_role="github-oauth" 2>/dev/null || echo "OIDC config completed"
+# Create admin policy for GitHub users
+vault policy write admin - <<EOF
+# Admin policy for GitHub OAuth users
+path "secret/*" {
+  capabilities = ["create", "read", "update", "delete", "list"]
+}
 
-vault write auth/oidc/role/github-oauth \
-    bound_audiences="${GITHUB_OAUTH_CLIENT_ID}" \
-    allowed_redirect_uris="https://keys.bryanwills.dev/ui/vault/auth/oidc/oidc/callback" \
-    user_claim="sub" \
-    policies="default" \
-    oidc_scopes="user:email" 2>/dev/null || echo "OIDC role config failed"
+path "identity/*" {
+  capabilities = ["read", "list"]
+}
+
+path "sys/auth/*" {
+  capabilities = ["read", "list"]
+}
+
+path "auth/token/*" {
+  capabilities = ["read", "list"]
+}
+
+# Allow access to most Vault features
+path "*" {
+  capabilities = ["read", "list"]
+}
+EOF
 
 # Create a backup admin user (optional)
 vault write auth/userpass/users/admin \
     password="${VAULT_DEV_ROOT_TOKEN_ID}" \
-    policies="default" 2>/dev/null || echo "Admin user creation failed"
+    policies="admin" 2>/dev/null || echo "Admin user creation failed"
 
 # Create marker file to indicate configuration is complete
 touch "$MARKER_FILE"
 echo "Vault configuration complete!"
-echo "Available auth methods: GitHub (token), GitHub OAuth (OIDC), Username/Password, Root Token"
+echo "Available auth methods: GitHub OAuth, Username/Password, Root Token"
