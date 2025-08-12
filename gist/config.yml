@@ -1,8 +1,12 @@
+# OpenGist Configuration File
+# NOTE: This file references environment variables that are loaded from .env
+# The docker-compose.yml passes these values to the container
+
 log-level: info
 log-output: stdout
 external-url: https://gist.bryanwills.dev
 opengist-home: /opengist
-secret-key: 2a6ab9fef661c5193b79b5576b787d0d5db3438377c340f5a2dd57dab52aec50
+secret-key: ${SECRET_KEY}
 db-uri: opengist.db
 index: bleve
 sqlite.journal-mode: WAL
@@ -13,6 +17,6 @@ ssh.git-enabled: true
 ssh.host: 0.0.0.0
 ssh.port: 2222
 ssh.external-domain: gist.bryanwills.dev
-github.client-key: Ov23li0xFp7jlLqrWMxx
-github.secret: 2f2665c24f504ac5082be058ffab4498bae6ee55
+github.client-key: ${GITHUB_OAUTH_CLIENT_ID}
+github.secret: ${GITHUB_OAUTH_CLIENT_SECRET}
 custom.name: Gist
