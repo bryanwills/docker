@@ -107,3 +107,10 @@ db.*
 
 # Ignore service configuration files with secrets
 **/gist/config.yml
+
+# Ignore Authelia data and logs
+**/authelia/data/
+**/authelia/logs/
+
+# Ignore Authelia environment files
+**/authelia/.env
