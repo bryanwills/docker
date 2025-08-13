@@ -1,0 +1,39 @@
+services:
+  authelia:
+    image: docker.io/authelia/authelia:latest
+    container_name: authelia
+    restart: unless-stopped
+    user: "1000:1000"
+    env_file:
+      - .env
+    volumes:
+      - ./configuration:/config
+      - ./data:/var/lib/authelia
+      - ./logs:/var/log/authelia
+    environment:
+      - TZ=America/Kentucky/Louisville
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.authelia.rule=Host(`auth.bryanwills.dev`)"
+      - "traefik.http.routers.authelia.entrypoints=websecure"
+      - "traefik.http.routers.authelia.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.authelia.middlewares=authelia@docker"
+      - "traefik.http.services.authelia.loadbalancer.server.port=9091"
+      - "traefik.docker.network=proxy"
+      # Authelia middleware for protecting other services
+      - "traefik.http.middlewares.authelia.forwardauth.address=http://authelia:9091/api/verify?rd=https://auth.bryanwills.dev"
+      - "traefik.http.middlewares.authelia.forwardauth.trustForwardHeader=true"
+      - "traefik.http.middlewares.authelia.forwardauth.authResponseHeaders=Remote-User,Remote-Groups,Remote-Name,Remote-Email"
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:9091/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+networks:
+  proxy:
+    external: true
