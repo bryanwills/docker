@@ -112,6 +112,7 @@ db.*
 **/authelia/data/
 **/authelia/logs/
 **/authelia/configuration/configuration.yml
+**/authelia/configuration/users_database.yml
 
 # Ignore Authelia environment files
 **/authelia/.env
