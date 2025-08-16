@@ -16,6 +16,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
     networks:
       - proxy
+      - graylog_graylog
     environment:
       - TZ=/etc/localtime
       - RSYSLOG_HOSTNAME=logs.bryanwills.dev
@@ -26,4 +27,6 @@ volumes:
 
 networks:
   proxy:
+    external: true
+  graylog_graylog:
     external: true

@@ -1,0 +1,80 @@
+name: graylog
+
+services:
+  # MongoDB: https://hub.docker.com/_/mongo/
+  mongodb:
+    image: mongo:6
+    container_name: graylog-mongodb
+    restart: unless-stopped
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - graylog
+
+  # Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/7.10/docker.html
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.2
+    container_name: graylog-elasticsearch
+    restart: unless-stopped
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    environment:
+      - http.host=0.0.0.0
+      - transport.host=localhost
+      - network.host=0.0.0.0
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - graylog
+
+  # Graylog: https://hub.docker.com/r/graylog/graylog
+  graylog:
+    image: graylog/graylog:6.3.2
+    container_name: graylog-server
+    restart: unless-stopped
+    depends_on:
+      - mongodb
+      - elasticsearch
+    volumes:
+      - graylog_data:/usr/share/graylog/data
+    environment:
+      - GRAYLOG_PASSWORD_SECRET=${GRAYLOG_PASSWORD_SECRET}
+      - GRAYLOG_ROOT_PASSWORD_SHA2=${GRAYLOG_ROOT_PASSWORD_SHA2}
+      - GRAYLOG_HTTP_EXTERNAL_URI=https://graylog.bryanwills.dev/
+      - GRAYLOG_HTTP_BIND_ADDRESS=0.0.0.0:9001
+      - GRAYLOG_ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - GRAYLOG_MONGODB_URI=mongodb://mongodb:27017/graylog
+    # Temporarily add direct port mapping for testing
+    ports:
+      - "9001:9001"
+    expose:
+      - "12201/udp"
+      - "1514"
+      - "1514/udp"
+    networks:
+      - graylog
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.graylog.loadbalancer.server.port=9001"
+      - "traefik.http.routers.graylog.rule=Host(`graylog.bryanwills.dev`)"
+      - "traefik.http.routers.graylog.entrypoints=websecure"
+      - "traefik.http.routers.graylog.tls=true"
+      - "traefik.http.routers.graylog.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.graylog.service=graylog"
+
+volumes:
+  mongodb_data:
+  elasticsearch_data:
+  graylog_data:
+
+networks:
+  graylog:
+    driver: bridge
+  proxy:
+    external: true
