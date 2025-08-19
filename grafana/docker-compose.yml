@@ -1,0 +1,35 @@
+services:
+  grafana:
+    image: grafana/grafana-enterprise:12.1.0-ubuntu
+    container_name: grafana
+    restart: unless-stopped
+    environment:
+      - HOSTNAME=grafana.bryanwills.dev
+      - GF_SECURITY_ADMIN_USER=${GF_SECURITY_ADMIN_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GF_SECURITY_ADMIN_PASSWORD}
+      - GF_USERS_ALLOW_SIGN_UP=true
+      - GF_SERVER_ROOT_URL=https://grafana.bryanwills.dev
+      - GF_SERVER_SERVE_FROM_SUB_PATH=false
+    volumes:
+      - /home/bryanwi09/docker/grafana/data:/var/lib/grafana
+      - /home/bryanwi09/docker/grafana/provisioning:/etc/grafana/provisioning
+      - /etc/localtime:/etc/localtime
+    ports:
+      - "3300:3000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.grafana.rule=Host(`grafana.bryanwills.dev`)"
+      - "traefik.http.routers.grafana.entrypoints=websecure"
+      - "traefik.http.routers.grafana.tls=true"
+      - "traefik.http.routers.grafana.tls.certresolver=letsencrypt"
+      - "traefik.http.services.grafana.loadbalancer.server.port=3000"
+      - "traefik.http.middlewares.grafana-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.grafana-http.rule=Host(`grafana.bryanwills.dev`)"
+      - "traefik.http.routers.grafana-http.entrypoints=web"
+      - "traefik.http.routers.grafana-http.middlewares=grafana-https-redirect"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
