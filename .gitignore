@@ -16,6 +16,7 @@ matomo/html/vendor/**/*
 # Ignore system files
 .DS_Store
 Thumbs.db
+.cache_ggshield
 
 # Ignore Docker-related files
 **/acme.json
@@ -88,3 +89,32 @@ db.*
 ../../db.*
 ../../*.sqlite*
 ../vaultwarden/db.sqlite3
+
+# Ignore Vaultwarden icon cache
+**/vaultwarden/icon_cache/
+**/icon_cache/
+
+# Ignore Affine backup files
+**/affine/backups/
+**/backups/
+*.sql.gz
+
+# Ignore Docker data directories that cause permission issues
+**/tooljet/postgres_data/
+**/hashicorp/vault-data/
+**/vault-data/
+**/postgres_data/
+
+# Ignore service configuration files with secrets
+**/gist/config.yml
+
+# Ignore Authelia data and logs
+**/authelia/data/
+**/authelia/logs/
+**/authelia/configuration/configuration.yml
+**/authelia/configuration/users_database.yml
+**/authelia/configuration/**
+
+
+# Ignore Authelia environment files
+**/authelia/.env

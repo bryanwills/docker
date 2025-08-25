@@ -1,0 +1,32 @@
+services:
+  rsyslog:
+    image: rsyslog/rsyslog:latest
+    container_name: rsyslog-server
+    restart: unless-stopped
+    hostname: logs.bryanwills.dev
+    user: "1000:1000"
+    ports:
+      - "514:514/udp"
+      - "514:514/tcp"
+    volumes:
+      - ./rsyslog.conf:/etc/rsyslog.conf
+      - ./logs:/logs
+      - rsyslog-data:/var/lib/rsyslog
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    networks:
+      - proxy
+      - graylog_graylog
+    environment:
+      - TZ=/etc/localtime
+      - RSYSLOG_HOSTNAME=logs.bryanwills.dev
+    # No Traefik labels needed - rsyslog is not a web service
+
+volumes:
+  rsyslog-data:
+
+networks:
+  proxy:
+    external: true
+  graylog_graylog:
+    external: true

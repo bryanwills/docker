@@ -1,0 +1,28 @@
+# OpenGist Configuration Example File
+# Copy this file to config.yml and update with your actual values
+# NOTE: This is for documentation only - the docker-compose.yml uses environment variables
+
+log-level: info
+log-output: stdout
+external-url: https://your-domain.com
+opengist-home: /opengist
+secret-key: your_secret_key_here_64_characters_long
+db-uri: opengist.db
+index: bleve
+sqlite.journal-mode: WAL
+http.host: 0.0.0.0
+http.port: 6157
+http.git-enabled: true
+ssh.git-enabled: true
+ssh.host: 0.0.0.0
+ssh.port: 2222
+ssh.external-domain: your-domain.com
+github.client-key: your_github_oauth_client_id_here
+github.secret: your_github_oauth_client_secret_here
+custom.name: Gist
+
+# IMPORTANT:
+# 1. Copy this file to config.yml
+# 2. Update the placeholder values with your actual configuration
+# 3. The docker-compose.yml will override these with environment variables
+# 4. Keep your actual config.yml out of git (it's in .gitignore)
