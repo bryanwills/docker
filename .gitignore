@@ -106,6 +106,9 @@ db.*
 **/postgres_data/
 **/linkwarden/postgres-data/
 
+# Ignore backup directories
+backups/
+
 # Ignore service configuration files with secrets
 **/gist/config.yml
 
