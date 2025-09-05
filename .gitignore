@@ -118,3 +118,6 @@ db.*
 
 # Ignore Authelia environment files
 **/authelia/.env
+
+
+vaultwarden/db.sqlite3
