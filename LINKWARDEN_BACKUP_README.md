@@ -12,17 +12,18 @@ This guide explains how to use the automated backup and restore system for your 
 ## 🔄 Automated Backups
 
 ### Schedule
-- **Frequency**: Daily at 2:00 AM
+- **Frequency**: Every 6 hours (00:00, 06:00, 12:00, 18:00)
 - **Retention**: 30 days (older backups are automatically deleted)
 - **Location**: `/home/bryanwi09/docker/backups/linkwarden/`
 - **Logs**: `/home/bryanwi09/docker/backups/linkwarden/backup.log`
 
 ### Backup Features
 - ✅ Compressed backups (gzip) to save disk space
-- ✅ Automatic cleanup of old backups
+- ✅ Automatic cleanup of old backups (30-day retention)
 - ✅ Symlink to latest backup for easy access
 - ✅ Detailed logging with timestamps
 - ✅ Error handling and validation
+- ✅ Runs every 6 hours for frequent backups
 
 ## 🛠️ Manual Operations
 
