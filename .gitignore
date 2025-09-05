@@ -104,6 +104,7 @@ db.*
 **/hashicorp/vault-data/
 **/vault-data/
 **/postgres_data/
+**/linkwarden/postgres-data/
 
 # Ignore service configuration files with secrets
 **/gist/config.yml
