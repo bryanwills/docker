@@ -104,6 +104,10 @@ db.*
 **/hashicorp/vault-data/
 **/vault-data/
 **/postgres_data/
+**/linkwarden/postgres-data/
+
+# Ignore backup directories
+backups/
 
 # Ignore service configuration files with secrets
 **/gist/config.yml
@@ -118,3 +122,6 @@ db.*
 
 # Ignore Authelia environment files
 **/authelia/.env
+
+
+vaultwarden/db.sqlite3
