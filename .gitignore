@@ -112,6 +112,9 @@ backups/
 # Ignore service configuration files with secrets
 **/gist/config.yml
 
+# Ignore system scripts
+dns-log-forwarder.sh
+
 # Ignore Authelia data and logs
 **/authelia/data/
 **/authelia/logs/
