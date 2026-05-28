@@ -126,5 +126,9 @@ dns-log-forwarder.sh
 # Ignore Authelia environment files
 **/authelia/.env
 
-
+**/docmost/postgres-data/
+**/affine/backups/**
+docmost/redis-data/dump.rdb
+hashicorp/vault-data.backup.20260526-232508/
+**/vaultwarden/icon_cache/**
 vaultwarden/db.sqlite3
