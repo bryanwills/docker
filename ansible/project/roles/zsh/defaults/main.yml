@@ -1,0 +1,6 @@
+---
+zsh_package: zsh
+zsh_shell_path: /usr/bin/zsh
+# Optionally make zsh the login shell for a user.
+zsh_set_default_shell: false
+zsh_default_user: ""

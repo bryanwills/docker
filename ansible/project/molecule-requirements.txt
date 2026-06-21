@@ -1,0 +1,8 @@
+# Python deps for running Molecule locally (use a virtualenv):
+#   python3 -m venv .venv && source .venv/bin/activate
+#   pip install -r molecule-requirements.txt
+ansible-core
+molecule
+molecule-plugins[docker]
+ansible-lint
+yamllint

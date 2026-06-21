@@ -1,0 +1,29 @@
+# Molecule CI example.
+# To enable: copy this to the REPO ROOT's workflow dir, i.e.
+#   <repo-root>/.github/workflows/molecule.yml
+# (For the VPS repo that's ~/docker/.github/workflows/ -- note the role path
+#  below is docker/ansible/project/roles/zsh.)
+name: molecule
+on:
+  push:
+    paths:
+      - "docker/ansible/project/roles/**"
+  workflow_dispatch:
+jobs:
+  molecule:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install deps
+        run: pip install molecule molecule-plugins[docker] ansible-lint yamllint
+      - name: Lint
+        working-directory: docker/ansible/project
+        run: |
+          yamllint .
+          ansible-lint
+      - name: Molecule test (zsh role)
+        working-directory: docker/ansible/project/roles/zsh
+        run: molecule test

@@ -1,0 +1,16 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Locate the zsh binary
+      ansible.builtin.command: which zsh
+      register: zsh_bin
+      changed_when: false
+
+    - name: Assert zsh is installed
+      ansible.builtin.assert:
+        that:
+          - zsh_bin.rc == 0
+        success_msg: "zsh present at {{ zsh_bin.stdout }}"
+        fail_msg: "zsh was not installed by the role"

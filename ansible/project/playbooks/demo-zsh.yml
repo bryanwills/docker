@@ -1,0 +1,10 @@
+---
+# Simple demo: ensure zsh is installed on the target(s).
+# Run against localhost (default) or any inventory group:
+#   ansible-playbook playbooks/demo-zsh.yml
+#   ansible-playbook playbooks/demo-zsh.yml -e target=vps
+- name: Demo - ensure zsh is installed
+  hosts: "{{ target | default('local') }}"
+  gather_facts: true
+  roles:
+    - role: zsh

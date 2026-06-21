@@ -1,0 +1,38 @@
+services:
+  semaphore:
+    image: semaphoreui/semaphore:latest
+    container_name: semaphore
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - semaphore-config:/etc/semaphore        # config.json
+      - semaphore-data:/var/lib/semaphore       # bolt database
+      # Read-only copy of the ansible project (playbooks/roles/inventory) so you
+      # can point Semaphore at /ansible. Git-backed repos are the long-term path.
+      - /home/bryanwi09/docker/ansible/project:/ansible:ro
+    networks:
+      proxy:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.middlewares.semaphore-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.semaphore-http.entrypoints=web"
+      - "traefik.http.routers.semaphore-http.middlewares=semaphore-https-redirect"
+      - "traefik.http.routers.semaphore-http.rule=Host(`ansible.bryanwills.dev`)"
+      - "traefik.http.routers.semaphore-secure.entrypoints=websecure"
+      - "traefik.http.routers.semaphore-secure.rule=Host(`ansible.bryanwills.dev`)"
+      - "traefik.http.routers.semaphore-secure.service=semaphore"
+      - "traefik.http.routers.semaphore-secure.tls=true"
+      - "traefik.http.routers.semaphore-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.services.semaphore.loadbalancer.server.port=3000"
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  semaphore-config:
+  semaphore-data:
+
+networks:
+  proxy:
+    external: true
