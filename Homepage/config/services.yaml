@@ -1,18 +1,205 @@
 ---
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/services
+#
+# Each service binds to a running container via `server` + `container` so that
+# Homepage shows live up/down status (and stats on click). `href` opens the
+# public Traefik URL in a new tab (target is set globally in settings.yaml).
+# Icons are auto-resolved from https://github.com/homarr-labs/dashboard-icons.
+#
+# Group order below = display order on the dashboard (top to bottom).
 
-- My First Group:
-    - My First Service:
-        href: http://localhost/
-        description: Homepage is awesome
+- Edge & Management:
+    - Traefik:
+        href: https://traefik.bryanwills.dev
+        target: _blank
+        description: Reverse proxy / router dashboard
+        icon: traefik.png
+        server: my-docker
+        container: traefik
+    - Portainer:
+        href: https://portainer.bryanwills.dev
+        target: _blank
+        description: Container management & control
+        icon: portainer.png
+        server: my-docker
+        container: portainer
+    - Cockpit:
+        href: https://cockpit.bryanwills.dev
+        target: _blank
+        description: Linux server manager
+        icon: cockpit.png
+        siteMonitor: https://cockpit.bryanwills.dev
+    - bryanwills.dev:
+        href: https://bryanwills.dev
+        target: _blank
+        description: Personal site (Nginx)
+        icon: nginx.png
+        server: my-docker
+        container: nginx
+    - bigbraincoding.com:
+        href: https://bigbraincoding.com
+        target: _blank
+        description: Big Brain Coding (Nginx)
+        icon: nginx.png
+        server: my-docker
+        container: nginx
+    - Semaphore:
+        href: https://ansible.bryanwills.dev
+        target: _blank
+        description: Ansible + OpenTofu automation UI
+        icon: semaphore.png
+        server: my-docker
+        container: semaphore
 
-- My Second Group:
-    - My Second Service:
-        href: http://localhost/
-        description: Homepage is the best
+- Monitoring & Logging:
+    - Grafana:
+        href: https://grafana.bryanwills.dev
+        target: _blank
+        description: Metrics & dashboards
+        icon: grafana.png
+        server: my-docker
+        container: grafana
+    - Loki:
+        href: https://grafana.bryanwills.dev/explore
+        target: _blank
+        description: Query logs via Grafana
+        icon: loki.png
+        server: my-docker
+        container: loki
+    - Uptime Kuma:
+        href: https://status.bryanwills.dev
+        target: _blank
+        description: Uptime monitoring
+        icon: uptime-kuma.png
+        server: my-docker
+        container: uptime-kuma
+    - Graylog:
+        href: https://graylog.bryanwills.dev
+        target: _blank
+        description: Log aggregation
+        icon: graylog.png
+        server: my-docker
+        container: graylog-server
+    - Homepage:
+        href: https://homepage.bryanwills.dev
+        target: _blank
+        description: This dashboard
+        icon: homepage.png
+        server: my-docker
+        container: homepage
 
-- My Third Group:
-    - My Third Service:
-        href: http://localhost/
-        description: Homepage is 😎
+- Secrets & Security:
+    - Vault:
+        href: https://keys.bryanwills.dev
+        target: _blank
+        description: HashiCorp Vault (secrets)
+        icon: vault.png
+        server: my-docker
+        container: vault
+    - Vaultwarden:
+        href: https://vault.bryanwills.dev
+        target: _blank
+        description: Password manager (Bitwarden-compatible)
+        icon: vaultwarden.png
+        server: my-docker
+        container: vaultwarden
+
+- Apps & Productivity:
+    - n8n:
+        href: https://n8n.bryanwills.dev
+        target: _blank
+        description: Workflow automation
+        icon: n8n.png
+        server: my-docker
+        container: n8n
+    - Docmost:
+        href: https://docs.bryanwills.dev
+        target: _blank
+        description: Wiki & docs
+        icon: docmost.png
+        server: my-docker
+        container: docmost
+    - Linkwarden:
+        href: https://links.bryanwills.dev
+        target: _blank
+        description: Bookmark & link archive
+        icon: linkwarden.png
+        server: my-docker
+        container: linkwarden
+    - Opengist:
+        href: https://gist.bryanwills.dev
+        target: _blank
+        description: Self-hosted snippets / pastebin
+        icon: opengist.png
+        server: my-docker
+        container: opengist
+    - ToolJet:
+        href: https://tooljet.bryanwills.dev
+        target: _blank
+        description: Low-code app builder
+        icon: tooljet.png
+        server: my-docker
+        container: tooljet_app
+    - Excalidraw:
+        href: https://draw.bryanwills.dev
+        target: _blank
+        description: Whiteboard / diagrams
+        icon: excalidraw.png
+        server: my-docker
+        container: excalidraw
+    - IT-Tools:
+        href: https://it-tools.bryanwills.dev
+        target: _blank
+        description: Developer utilities
+        icon: it-tools.png
+        server: my-docker
+        container: it-tools
+    - Code Server:
+        href: https://code.bryanwills.dev
+        target: _blank
+        description: VS Code in the browser
+        icon: code-server.png
+        server: my-docker
+        container: code-server
+
+- Network:
+    - Pi-hole:
+        href: https://dns.bryanwills.dev
+        target: _blank
+        description: DNS sinkhole / ad-block
+        icon: pi-hole.png
+        server: my-docker
+        container: pihole
+
+# Backing services with no public web UI. Listed here only for at-a-glance
+# health (status dot). They have no `href` so the tiles are not clickable.
+- Infrastructure (no UI):
+    - Docmost Postgres:
+        icon: postgres.png
+        server: my-docker
+        container: docmost-postgres
+    - Docmost Redis:
+        icon: redis.png
+        server: my-docker
+        container: docmost-redis
+    - Linkwarden Postgres:
+        icon: postgres.png
+        server: my-docker
+        container: linkwarden-postgres
+    - Graylog MongoDB:
+        icon: mongodb.png
+        server: my-docker
+        container: graylog-mongodb
+    - Graylog Elasticsearch:
+        icon: elasticsearch.png
+        server: my-docker
+        container: graylog-elasticsearch
+    - PHP-FPM:
+        icon: php.png
+        server: my-docker
+        container: php-fpm
+    - Rsyslog:
+        icon: mdi-text-box-search
+        server: my-docker
+        container: rsyslog-server

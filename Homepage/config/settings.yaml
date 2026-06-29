@@ -2,6 +2,44 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/settings
 
+title: Bryan's Homelab
+description: Dashboard for the VPS Docker stack
+
+# Open all service links in a new browser tab.
+target: _blank
+
+theme: dark
+color: slate
+headerStyle: boxed
+
+# Show live status dots next to every service that has a docker binding.
+statusStyle: dot
+
+# Make every card in a row the same height (fixes Cockpit/Loki looking taller).
+useEqualHeights: true
+
+# Column layout per group (must match the group names in services.yaml).
+layout:
+  Edge & Management:
+    style: row
+    columns: 3
+  Monitoring & Logging:
+    style: row
+    columns: 5
+  Secrets & Security:
+    style: row
+    columns: 2
+  Apps & Productivity:
+    style: row
+    columns: 4
+  Network:
+    style: row
+    columns: 3
+  Infrastructure (no UI):
+    style: row
+    columns: 4
+
+# Weather widget API keys (optional). Replace placeholders or remove.
 providers:
   openweathermap: openweathermapapikey
   weatherapi: weatherapiapikey

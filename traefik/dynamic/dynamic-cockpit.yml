@@ -1,0 +1,37 @@
+# Cockpit runs on the HOST (:9090), not in Docker. Traefik file provider routes
+# https://cockpit.bryanwills.dev to the host socket.
+#
+# Prereqs:
+#   1) DNS A record: cockpit.bryanwills.dev -> this VPS
+#   2) sudo docker/cockpit/install-cockpit.sh
+#   3) Traefik extra_hosts + file provider (see traefik/docker-compose.yml)
+
+http:
+  routers:
+    cockpit-http:
+      rule: "Host(`cockpit.bryanwills.dev`)"
+      entryPoints:
+        - web
+      middlewares:
+        - cockpit-https-redirect
+      service: cockpit
+
+    cockpit:
+      rule: "Host(`cockpit.bryanwills.dev`)"
+      entryPoints:
+        - websecure
+      service: cockpit
+      tls:
+        certResolver: letsencrypt
+
+  middlewares:
+    cockpit-https-redirect:
+      redirectScheme:
+        scheme: https
+
+  services:
+    cockpit:
+      loadBalancer:
+        passHostHeader: true
+        servers:
+          - url: "http://host.docker.internal:9090"

@@ -1,0 +1,34 @@
+---
+# Molecule tests the zsh role by spinning up throwaway Docker containers,
+# running the role, then verifying. Run from inside roles/zsh/:
+#   cd roles/zsh && molecule test
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: zsh-ubuntu2404
+    # geerlingguy images ship systemd + python, ideal for molecule.
+    image: geerlingguy/docker-ubuntu2404-ansible:latest
+    pre_build_image: true
+    command: "/usr/lib/systemd/systemd"
+    cgroupns_mode: host
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+  - name: zsh-debian12
+    image: geerlingguy/docker-debian12-ansible:latest
+    pre_build_image: true
+    command: "/usr/lib/systemd/systemd"
+    cgroupns_mode: host
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+provisioner:
+  name: ansible
+  env:
+    # The role under test lives at roles/zsh; its PARENT (roles/) must be on the
+    # roles path so `include_role: name: zsh` resolves during converge.
+    ANSIBLE_ROLES_PATH: "${MOLECULE_PROJECT_DIRECTORY}/.."
+verifier:
+  name: ansible

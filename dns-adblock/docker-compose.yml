@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     environment:
       - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-      - HOSTNAME=9648204b1ac8
+      - HOSTNAME=dns.bryanwills.dev
       - INSTALL_WEB_SERVER=true
       - DNSMASQ_LISTENING=all
       - TZ=America/New_York

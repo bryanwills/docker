@@ -1,0 +1,13 @@
+# Python / Molecule
+.venv/
+__pycache__/
+*.pyc
+.cache/
+
+# Ansible runtime
+*.retry
+.env
+
+# Galaxy-installed content (re-installed from requirements.yml)
+project/collections/
+collections/

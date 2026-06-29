@@ -1,0 +1,36 @@
+---
+- name: Check whether zsh is already installed
+  ansible.builtin.command: which zsh
+  register: zsh_check
+  changed_when: false
+  failed_when: false
+
+- name: Report current zsh state
+  ansible.builtin.debug:
+    msg: >-
+      zsh is
+      {{ ('already installed at ' ~ zsh_check.stdout)
+         if zsh_check.rc == 0
+         else 'NOT installed -- installing now' }}
+
+- name: Update apt cache (Debian/Ubuntu)
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+  become: true
+  when: ansible_os_family == 'Debian'
+
+- name: Ensure zsh is installed
+  ansible.builtin.package:
+    name: "{{ zsh_package }}"
+    state: present
+  become: true
+
+- name: Set zsh as the default shell (optional)
+  ansible.builtin.user:
+    name: "{{ zsh_default_user }}"
+    shell: "{{ zsh_shell_path }}"
+  become: true
+  when:
+    - zsh_set_default_shell | bool
+    - zsh_default_user | length > 0

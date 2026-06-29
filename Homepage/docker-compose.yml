@@ -1,16 +1,18 @@
-version: "3.3"
 services:
   homepage:
-    image: ghcr.io/benphelps/homepage:latest
+    # Migrated from the archived ghcr.io/benphelps/homepage to the actively
+    # maintained gethomepage image. Config format is identical.
+    image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
-    # uncomment if you do not want to run as root
-    #user: 1000:1000
-    # uncomment if you are not using a reverse proxy
-    #ports:
-    #  - 3000:3000
+    environment:
+      # REQUIRED on current versions when accessed via a reverse proxy / FQDN.
+      # Without this you get "Host validation failed" and a blank page.
+      HOMEPAGE_ALLOWED_HOSTS: homepage.bryanwills.dev
+      TZ: America/New_York
     volumes:
-      - /home/bryanwi09/docker/Homepage/config:/app/config # Make sure your local config directory exists
-      - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
+      - /home/bryanwi09/docker/Homepage/config:/app/config
+      # Read-only docker socket: enables container status/stats, not control.
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
       proxy:
     labels:
@@ -28,6 +30,7 @@ services:
       - "traefik.http.services.homepage.loadbalancer.server.port=3000"
     security_opt:
       - no-new-privileges:true
+    restart: unless-stopped
 
 networks:
   proxy:

@@ -1,0 +1,21 @@
+# OpenTofu / Terraform runtime artefacts
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+*.tfplan
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# State stored locally (per-project under state/)
+state/
+
+# Secrets
+*.auto.tfvars
+secrets.tfvars
+.env

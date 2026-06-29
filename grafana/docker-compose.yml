@@ -3,6 +3,9 @@ services:
     image: grafana/grafana-enterprise:12.1.0-ubuntu
     container_name: grafana
     restart: unless-stopped
+    # Run as the host user that owns ./data (grafana.db is owner-only 0640),
+    # otherwise the default uid 472 gets "permission denied" on the sqlite db.
+    user: "1000:1000"
     environment:
       - HOSTNAME=grafana.bryanwills.dev
       - GF_SECURITY_ADMIN_USER=${GF_SECURITY_ADMIN_USER}
