@@ -7,10 +7,16 @@ services:
       - .env
     volumes:
       - semaphore-config:/etc/semaphore        # config.json
-      - semaphore-data:/var/lib/semaphore       # bolt database
-      # Read-only copy of the ansible project (playbooks/roles/inventory) so you
-      # can point Semaphore at /ansible. Git-backed repos are the long-term path.
+      - semaphore-data:/var/lib/semaphore       # sqlite database + task workspaces
+      # Ansible project (playbooks, roles, inventory)
       - /home/bryanwi09/docker/ansible/project:/ansible:ro
+      # OpenTofu project (IaC configs). Semaphore runs `tofu` inside the container.
+      - /home/bryanwi09/docker/opentofu:/opentofu:ro
+      # Writable state directory — tofu state files land here (gitignored).
+      - /home/bryanwi09/docker/opentofu/state:/tofu-state
+      # Docker socket — needed only for the 02-docker-provider example.
+      # Remove this line if you don't want Semaphore to manage Docker containers.
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       proxy:
     labels:
@@ -19,6 +25,7 @@ services:
       - "traefik.http.middlewares.semaphore-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.routers.semaphore-http.entrypoints=web"
       - "traefik.http.routers.semaphore-http.middlewares=semaphore-https-redirect"
+      # Semaphore UI: Ansible + OpenTofu + more — all at ansible.bryanwills.dev
       - "traefik.http.routers.semaphore-http.rule=Host(`ansible.bryanwills.dev`)"
       - "traefik.http.routers.semaphore-secure.entrypoints=websecure"
       - "traefik.http.routers.semaphore-secure.rule=Host(`ansible.bryanwills.dev`)"
