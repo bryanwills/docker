@@ -50,7 +50,9 @@ services:
       # HTTP Router (redirects to HTTPS)
       - "traefik.http.routers.vault-http.rule=Host(`keys.bryanwills.dev`)"
       - "traefik.http.routers.vault-http.entrypoints=web"
-      - "traefik.http.routers.vault-http.middlewares=https-redirect@docker"
+      - "traefik.http.routers.vault-http.middlewares=vault-https-redirect@docker"
+      - "traefik.http.middlewares.vault-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.vault-https-redirect.redirectscheme.permanent=true"
 
       # HTTPS Router
       - "traefik.http.routers.vault.rule=Host(`keys.bryanwills.dev`)"
