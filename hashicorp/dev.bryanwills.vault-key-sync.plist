@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  dev.bryanwills.vault-key-sync.plist
+  macOS launchd agent — fires vault-key-sync-watch.sh when ~/.keys changes.
+
+  Install:
+    bash ~/vault-key-sync-watch.sh --install
+
+  Manual install:
+    sed "s|__HOME__|$HOME|g" dev.bryanwills.vault-key-sync.plist \
+      > ~/Library/LaunchAgents/dev.bryanwills.vault-key-sync.plist
+    launchctl load -w ~/Library/LaunchAgents/dev.bryanwills.vault-key-sync.plist
+
+  Uninstall:
+    launchctl unload ~/Library/LaunchAgents/dev.bryanwills.vault-key-sync.plist
+    rm ~/Library/LaunchAgents/dev.bryanwills.vault-key-sync.plist
+-->
+<plist version="1.0">
+<dict>
+
+  <key>Label</key>
+  <string>dev.bryanwills.vault-key-sync</string>
+
+  <!-- Script to run when ~/.keys changes -->
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>__HOME__/vault-key-sync-watch.sh</string>
+  </array>
+
+  <!-- Fire whenever any file inside ~/.keys is added / modified / deleted -->
+  <key>WatchPaths</key>
+  <array>
+    <string>__HOME__/.keys</string>
+  </array>
+
+  <!-- Environment — adjust DEVICE_PREFIX if running this on a second machine -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    <key>VAULT_ADDR</key>
+    <string>https://keys.bryanwills.dev</string>
+    <key>KEYS_DIR</key>
+    <string>__HOME__/.keys</string>
+    <key>DEVICE_PREFIX</key>
+    <string>macbook</string>
+    <key>HOME</key>
+    <string>__HOME__</string>
+  </dict>
+
+  <!-- Log stdout/stderr (in addition to what the script logs itself) -->
+  <key>StandardOutPath</key>
+  <string>__HOME__/Library/Logs/vault-key-sync.log</string>
+  <key>StandardErrorPath</key>
+  <string>__HOME__/Library/Logs/vault-key-sync.log</string>
+
+  <!-- Run as the current user, not root -->
+  <key>RunAtLoad</key>
+  <false/>
+
+  <!-- Throttle: if the directory changes repeatedly, wait 10 s before re-firing -->
+  <key>ThrottleInterval</key>
+  <integer>10</integer>
+
+</dict>
+</plist>
