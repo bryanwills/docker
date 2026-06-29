@@ -3,16 +3,17 @@
 # https://gethomepage.dev/latest/configs/bookmarks
 
 - Developer:
-    - Github:
+    - GitHub:
         - abbr: GH
-          href: https://github.com/
+          href: https://github.com/bryanwills/
+    - Docker Hub:
+        - abbr: DH
+          href: https://hub.docker.com/
 
-- Social:
-    - Reddit:
-        - abbr: RE
-          href: https://reddit.com/
-
-- Entertainment:
-    - YouTube:
-        - abbr: YT
-          href: https://youtube.com/
+- Infra Docs:
+    - Traefik Docs:
+        - abbr: TR
+          href: https://doc.traefik.io/traefik/
+    - Homepage Docs:
+        - abbr: HP
+          href: https://gethomepage.dev/

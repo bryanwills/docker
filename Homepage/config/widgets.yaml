@@ -2,7 +2,19 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/widgets
 
+- greeting:
+    text_size: xl
+    text: Bryan's Homelab
+
+- datetime:
+    text_size: xl
+    format:
+      dateStyle: long
+      timeStyle: short
+      hour12: true
+
 - resources:
+    label: System
     cpu: true
     memory: true
     disk: /
