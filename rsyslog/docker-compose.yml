@@ -13,7 +13,6 @@ services:
       - ./logs:/logs
       - rsyslog-data:/var/lib/rsyslog
       - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
     networks:
       - proxy
       - graylog_graylog
