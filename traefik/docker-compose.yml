@@ -10,6 +10,8 @@ services:
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--providers.docker.network=proxy"
+      - "--providers.file.directory=/dynamic"
+      - "--providers.file.watch=true"
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
       - "--certificatesresolvers.letsencrypt.acme.email=admin@bryanwills.dev"
@@ -24,9 +26,12 @@ services:
       - HOME=/root
     volumes:
       - /home/bryanwi09/docker/traefik/logs:/var/log/traefik
+      - /home/bryanwi09/docker/traefik/dynamic:/dynamic:ro
       - /etc/localtime:/etc/localtime
       - /var/run/docker.sock:/var/run/docker.sock
       - /home/bryanwi09/docker/traefik/acme.json:/letsencrypt/acme.json
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     ports:
       - "80:80"
       - "443:443"
