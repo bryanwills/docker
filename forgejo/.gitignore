@@ -1,0 +1,14 @@
+# Forgejo runtime data — do NOT commit these
+data/git/
+data/gitea/sessions/
+data/gitea/log/
+data/gitea/indexers/
+data/gitea/attachments/
+data/gitea/avatars/
+data/gitea/actions_log/
+data/gitea/actions_artifacts/
+data/gitea/queues/
+data/gitea/tmp/
+data/lfs/
+data/ssh/
+postgres-data/
