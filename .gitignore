@@ -28,6 +28,11 @@ docker-compose.override.yml
 **/redis/
 **/keycloak-db/
 **/data/
+# Exception: Forgejo app.ini config (runtime data dirs are still excluded by forgejo/.gitignore)
+!forgejo/data/
+!forgejo/data/gitea/
+!forgejo/data/gitea/conf/
+!forgejo/data/gitea/conf/app.ini
 **/logs/
 **/cache/
 **/etc-pihole/

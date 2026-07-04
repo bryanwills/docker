@@ -1,0 +1,110 @@
+services:
+
+  forgejo-db:
+    image: postgres:16-alpine
+    container_name: forgejo-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: forgejo
+      POSTGRES_USER: forgejo
+      POSTGRES_PASSWORD: Rjw5PK8E7rlrnTShtMJepoerKFuo12hR
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    networks:
+      - forgejo-internal
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U forgejo"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  forgejo:
+    image: codeberg.org/forgejo/forgejo:10
+    container_name: forgejo
+    restart: unless-stopped
+    depends_on:
+      forgejo-db:
+        condition: service_healthy
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - FORGEJO__database__DB_TYPE=postgres
+      - FORGEJO__database__HOST=forgejo-db:5432
+      - FORGEJO__database__NAME=forgejo
+      - FORGEJO__database__USER=forgejo
+      - FORGEJO__database__PASSWD=Rjw5PK8E7rlrnTShtMJepoerKFuo12hR
+      # Server
+      - FORGEJO__server__DOMAIN=git.bryanwills.dev
+      - FORGEJO__server__ROOT_URL=https://git.bryanwills.dev/
+      - FORGEJO__server__HTTP_PORT=3000
+      - FORGEJO__server__SSH_DOMAIN=git.bryanwills.dev
+      - FORGEJO__server__SSH_PORT=2222
+      - FORGEJO__server__SSH_LISTEN_PORT=2222
+      - FORGEJO__server__DISABLE_SSH=false
+      - FORGEJO__server__START_SSH_SERVER=true
+      - FORGEJO__server__LFS_START_SERVER=true
+      # Security
+      - FORGEJO__security__SECRET_KEY=k5escSsBqsqoH5VcW5ZWpBFQskV5MCXcw0oO8dkPI8
+      - FORGEJO__security__INSTALL_LOCK=true
+      - FORGEJO__security__MIN_PASSWORD_LENGTH=12
+      - FORGEJO__security__PASSWORD_COMPLEXITY=lower,upper,digit,spec
+      - FORGEJO__security__LOGIN_REMEMBER_DAYS=7
+      - FORGEJO__security__COOKIE_SECURE=true
+      # Service — no public sign-up
+      - FORGEJO__service__DISABLE_REGISTRATION=true
+      - FORGEJO__service__REQUIRE_SIGNIN_VIEW=true
+      - FORGEJO__service__ENABLE_NOTIFY_MAIL=false
+      - FORGEJO__service__NO_REPLY_ADDRESS=noreply@git.bryanwills.dev
+      # UI — disable public explore
+      - FORGEJO__ui__SHOW_USER_EMAIL=false
+      - FORGEJO__ui__DEFAULT_THEME=forgejo-auto
+      - FORGEJO__explore__DISABLE_USERS_PAGE=true
+      # Repository defaults
+      - FORGEJO__repository__DEFAULT_PRIVATE=true
+      - FORGEJO__repository__DEFAULT_PUSH_CREATE_PRIVATE=true
+      - FORGEJO__repository__ENABLE_PUSH_CREATE_USER=true
+      - FORGEJO__repository__MAX_CREATION_LIMIT=-1
+      # Logging
+      - FORGEJO__log__LEVEL=Info
+      - FORGEJO__log__MODE=console
+      # Cron / cleanup
+      - FORGEJO__cron__ENABLED=true
+      # LFS
+      - FORGEJO__lfs__PATH=/data/lfs
+    volumes:
+      - ./data:/data
+    ports:
+      - "2222:2222"
+    networks:
+      - proxy
+      - forgejo-internal
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      # HTTP → HTTPS redirect
+      - "traefik.http.routers.forgejo-http.rule=Host(`git.bryanwills.dev`)"
+      - "traefik.http.routers.forgejo-http.entrypoints=web"
+      - "traefik.http.routers.forgejo-http.middlewares=forgejo-https-redirect"
+      - "traefik.http.middlewares.forgejo-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.forgejo-https-redirect.redirectscheme.permanent=true"
+      # HTTPS router
+      - "traefik.http.routers.forgejo.rule=Host(`git.bryanwills.dev`)"
+      - "traefik.http.routers.forgejo.entrypoints=websecure"
+      - "traefik.http.routers.forgejo.tls=true"
+      - "traefik.http.routers.forgejo.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.forgejo.middlewares=forgejo-security-headers"
+      - "traefik.http.services.forgejo.loadbalancer.server.port=3000"
+      # Security headers middleware
+      - "traefik.http.middlewares.forgejo-security-headers.headers.stsSeconds=31536000"
+      - "traefik.http.middlewares.forgejo-security-headers.headers.stsIncludeSubdomains=true"
+      - "traefik.http.middlewares.forgejo-security-headers.headers.stsPreload=true"
+      - "traefik.http.middlewares.forgejo-security-headers.headers.contentTypeNosniff=true"
+      - "traefik.http.middlewares.forgejo-security-headers.headers.browserXssFilter=true"
+      - "traefik.http.middlewares.forgejo-security-headers.headers.referrerPolicy=strict-origin-when-cross-origin"
+      - "traefik.http.middlewares.forgejo-security-headers.headers.permissionsPolicy=camera=(), microphone=(), geolocation=()"
+
+networks:
+  proxy:
+    external: true
+  forgejo-internal:
+    driver: bridge
