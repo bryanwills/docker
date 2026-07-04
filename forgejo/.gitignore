@@ -9,6 +9,9 @@ data/gitea/actions_log/
 data/gitea/actions_artifacts/
 data/gitea/queues/
 data/gitea/tmp/
+data/gitea/home/
+data/gitea/ssh/
+data/git/
 data/lfs/
 data/ssh/
 postgres-data/
