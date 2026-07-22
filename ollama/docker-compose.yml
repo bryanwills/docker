@@ -1,0 +1,50 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: unless-stopped
+    environment:
+      - OLLAMA_HOST=0.0.0.0          # listen on all interfaces inside the container
+      - OLLAMA_NUM_PARALLEL=2        # max concurrent requests (tune down if CPU pegs)
+      - OLLAMA_MAX_LOADED_MODELS=1   # keep only 1 model loaded (save RAM on CPU-only)
+      - OLLAMA_KEEP_ALIVE=10m        # unload model after 10m of inactivity to free RAM
+    volumes:
+      - ollama-models:/root/.ollama  # persist downloaded models across restarts
+    networks:
+      - proxy
+    labels:
+      # --- Traefik routing (internal + external access) ---
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+
+      # HTTP → HTTPS redirect
+      - "traefik.http.routers.ollama-http.rule=Host(`ollama.bryanwills.dev`)"
+      - "traefik.http.routers.ollama-http.entrypoints=web"
+      - "traefik.http.routers.ollama-http.middlewares=ollama-https-redirect"
+      - "traefik.http.middlewares.ollama-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.ollama-https-redirect.redirectscheme.permanent=true"
+
+      # HTTPS router
+      - "traefik.http.routers.ollama.rule=Host(`ollama.bryanwills.dev`)"
+      - "traefik.http.routers.ollama.entrypoints=websecure"
+      - "traefik.http.routers.ollama.tls=true"
+      - "traefik.http.routers.ollama.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.ollama.service=ollama"
+
+      # Target port
+      - "traefik.http.services.ollama.loadbalancer.server.port=11434"
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  ollama-models:
+    driver: local
+
+networks:
+  proxy:
+    external: true
