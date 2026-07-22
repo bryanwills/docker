@@ -10,6 +10,9 @@ services:
       - OLLAMA_KEEP_ALIVE=10m        # unload model after 10m of inactivity to free RAM
     volumes:
       - ollama-models:/root/.ollama  # persist downloaded models across restarts
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
     networks:
       - proxy
     labels:
