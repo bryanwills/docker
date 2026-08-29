@@ -114,6 +114,9 @@ db.*
 # Ignore backup directories
 backups/
 
+# Local backup toolkit config (may contain offsite hostnames)
+scripts/backup/backup.conf
+
 # Ignore service configuration files with secrets
 **/gist/config.yml
 

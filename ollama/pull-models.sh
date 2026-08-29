@@ -6,7 +6,7 @@
 
 set -euo pipefail
 
-OLLAMA_URL="${OLLAMA_URL:-http://localhost:11434}"
+OLLAMA_URL="${OLLAMA_URL:-http://127.0.0.1:11435}"
 CONTAINER="ollama"
 
 # Models required by n8n workflows

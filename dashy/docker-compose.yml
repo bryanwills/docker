@@ -1,0 +1,30 @@
+services:
+  dashy:
+    image: lissy93/dashy:latest
+    container_name: dashy
+    environment:
+      TZ: America/New_York
+    volumes:
+      - /home/bryanwi09/docker/dashy/config/conf.yml:/app/public/conf.yml
+    networks:
+      proxy:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.middlewares.dashy-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.dashy-http.entrypoints=web"
+      - "traefik.http.routers.dashy-http.middlewares=dashy-https-redirect"
+      - "traefik.http.routers.dashy-http.rule=Host(`dashy.bryanwills.dev`)"
+      - "traefik.http.routers.dashy-secure.entrypoints=websecure"
+      - "traefik.http.routers.dashy-secure.rule=Host(`dashy.bryanwills.dev`)"
+      - "traefik.http.routers.dashy-secure.service=dashy"
+      - "traefik.http.routers.dashy-secure.tls=true"
+      - "traefik.http.routers.dashy-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.services.dashy.loadbalancer.server.port=8080"
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+networks:
+  proxy:
+    external: true

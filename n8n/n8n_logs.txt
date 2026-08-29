@@ -1,0 +1,530 @@
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed
+n8n  | Initializing n8n process
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | Exiting due to an error.
+n8n  | Error: Exiting due to an error.
+n8n  |     at Start.exitWithCrash (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:233:28)
+n8n  |     at Start.catch (/usr/local/lib/node_modules/n8n/src/commands/start.ts:455:14)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:86:25)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Node loader n8n-nodes-base is already registered.
+n8n  | Error: Node loader n8n-nodes-base is already registered.
+n8n  |     at LoadNodesAndCredentials.init (/usr/local/lib/node_modules/n8n/src/load-nodes-and-credentials.ts:116:11)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/base-command.ts:126:3)
+n8n  |     at Start.init (/usr/local/lib/node_modules/n8n/src/commands/start.ts:211:3)
+n8n  |     at CommandRegistry.execute (/usr/local/lib/node_modules/n8n/src/command-registry.ts:82:4)
+n8n  |     at /usr/local/lib/node_modules/n8n/bin/n8n:63:2
+n8n  | 
+n8n  | Last session crashed

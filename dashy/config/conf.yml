@@ -1,0 +1,217 @@
+---
+# Dashy configuration
+# Docs: https://dashy.to/docs/configuring
+#
+# Groupings mirror config/services.yaml in the Homepage dashboard
+# (/home/bryanwi09/docker/Homepage/config/services.yaml) so both
+# dashboards present the same sections in the same order.
+
+pageInfo:
+  title: Homelab Dashboard
+  description: Bryan's self-hosted services
+  navLinks:
+    - title: Homepage
+      path: https://homepage.bryanwills.dev
+    - title: GitHub
+      path: https://github.com/bryanwills
+
+appConfig:
+  theme: colorful
+  layout: auto
+  iconSize: medium
+  language: en
+  statusCheck: true
+  statusCheckInterval: 0
+
+sections:
+  - name: Edge & Management
+    icon: fas fa-shield-alt
+    items:
+      - title: Dashy
+        description: This dashboard
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/dashy.png
+        url: https://dashy.bryanwills.dev
+        target: newtab
+        statusCheck: true
+      - title: Traefik
+        description: Reverse proxy / router dashboard
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/traefik.png
+        url: https://traefik.bryanwills.dev
+        target: newtab
+        statusCheck: true
+      - title: Portainer
+        description: Container management & control
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/portainer.png
+        url: https://portainer.bryanwills.dev
+        target: newtab
+        statusCheck: true
+      - title: Cockpit
+        description: Linux server manager
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/cockpit.png
+        url: https://cockpit.bryanwills.dev
+        target: newtab
+        statusCheck: true
+      - title: bryanwills.dev
+        description: Personal site (Nginx)
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nginx.png
+        url: https://bryanwills.dev
+        target: newtab
+        statusCheck: true
+      - title: bigbraincoding.com
+        description: Big Brain Coding (Nginx)
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nginx.png
+        url: https://bigbraincoding.com
+        target: newtab
+        statusCheck: true
+      - title: Semaphore
+        description: Ansible + OpenTofu automation UI
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/semaphore.png
+        url: https://ansible.bryanwills.dev
+        target: newtab
+        statusCheck: true
+
+  - name: Monitoring & Logging
+    icon: fas fa-chart-line
+    items:
+      - title: Grafana
+        description: Metrics & dashboards
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/grafana.png
+        url: https://grafana.bryanwills.dev
+        target: newtab
+        statusCheck: true
+      - title: Loki
+        description: Query logs via Grafana
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/loki.png
+        url: https://grafana.bryanwills.dev/explore
+        target: newtab
+        statusCheck: true
+      - title: Uptime Kuma
+        description: Uptime monitoring
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/uptime-kuma.png
+        url: https://status.bryanwills.dev
+        target: newtab
+        statusCheck: true
+      - title: Graylog
+        description: Log aggregation
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/graylog.png
+        url: https://graylog.bryanwills.dev
+        target: newtab
+        statusCheck: true
+      - title: Homepage
+        description: The other dashboard
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/homepage.png
+        url: https://homepage.bryanwills.dev
+        target: newtab
+        statusCheck: true
+
+  - name: Secrets & Security
+    icon: fas fa-key
+    items:
+      - title: Vault
+        description: HashiCorp Vault (secrets)
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/vault.png
+        url: https://keys.bryanwills.dev
+        target: newtab
+        statusCheck: true
+      - title: Vaultwarden
+        description: Password manager (Bitwarden-compatible)
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/vaultwarden.png
+        url: https://vault.bryanwills.dev
+        target: newtab
+        statusCheck: true
+
+  - name: Apps & Productivity
+    icon: fas fa-th-large
+    items:
+      - title: n8n
+        description: Workflow automation
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/n8n.png
+        url: https://n8n.bryanwills.dev
+        target: newtab
+        statusCheck: true
+      - title: Docmost
+        description: Wiki & docs
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/docmost.png
+        url: https://docs.bryanwills.dev
+        target: newtab
+        statusCheck: true
+      - title: Linkwarden
+        description: Bookmark & link archive
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/linkwarden.png
+        url: https://links.bryanwills.dev
+        target: newtab
+        statusCheck: true
+      - title: Opengist
+        description: Self-hosted snippets / pastebin
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/opengist.png
+        url: https://gist.bryanwills.dev
+        target: newtab
+        statusCheck: true
+      - title: ToolJet
+        description: Low-code app builder
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/tooljet.png
+        url: https://tooljet.bryanwills.dev
+        target: newtab
+        statusCheck: true
+      - title: Excalidraw
+        description: Whiteboard / diagrams
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/excalidraw.png
+        url: https://draw.bryanwills.dev
+        target: newtab
+        statusCheck: true
+      - title: IT-Tools
+        description: Developer utilities
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/it-tools.png
+        url: https://it-tools.bryanwills.dev
+        target: newtab
+        statusCheck: true
+      - title: Code Server
+        description: VS Code in the browser
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/code-server.png
+        url: https://code.bryanwills.dev
+        target: newtab
+        statusCheck: true
+
+  - name: Network
+    icon: fas fa-network-wired
+    items:
+      - title: Pi-hole
+        description: DNS sinkhole / ad-block
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/pi-hole.png
+        url: https://dns.bryanwills.dev
+        target: newtab
+        statusCheck: true
+
+  # Backing services with no public web UI. Listed here only for reference;
+  # they have no `url` so the tiles are not clickable and are not status-checked.
+  - name: Infrastructure (no UI)
+    icon: fas fa-server
+    items:
+      - title: Docmost Postgres
+        description: Database for Docmost
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/postgres.png
+        statusCheck: false
+      - title: Docmost Redis
+        description: Cache for Docmost
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/redis.png
+        statusCheck: false
+      - title: Linkwarden Postgres
+        description: Database for Linkwarden
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/postgres.png
+        statusCheck: false
+      - title: Graylog MongoDB
+        description: Database for Graylog
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mongodb.png
+        statusCheck: false
+      - title: Graylog Elasticsearch
+        description: Search index for Graylog
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/elasticsearch.png
+        statusCheck: false
+      - title: PHP-FPM
+        description: PHP FastCGI process manager
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/php.png
+        statusCheck: false
+      - title: Rsyslog
+        description: Syslog server
+        icon: far fa-file-alt
+        statusCheck: false
